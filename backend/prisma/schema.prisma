@@ -1,0 +1,252 @@
+// Prisma Schema для SQLite (локальна розробка)
+// TDD підхід - спочатку тести, потім реалізація
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Ролі користувачів
+model Role {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String?
+  permissions String? // JSON як String для SQLite
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  users User[]
+
+  @@map("roles")
+}
+
+// Користувачі системи
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  roleId       Int       @map("role_id")
+  isActive     Boolean   @default(true) @map("is_active")
+  lastLogin    DateTime? @map("last_login")
+  lastActivity DateTime? @map("last_activity")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  role               Role                @relation(fields: [roleId], references: [id])
+  personnel          Personnel?
+  sessions           Session[]
+  knowledgeMaterials KnowledgeMaterial[]
+
+  @@index([email])
+  @@index([roleId])
+  @@map("users")
+}
+
+// Сесії
+model Session {
+  id           Int      @id @default(autoincrement())
+  userId       Int      @map("user_id")
+  sessionToken String   @unique @map("session_token")
+  ipAddress    String?  @map("ip_address")
+  userAgent    String?  @map("user_agent")
+  createdAt    DateTime @default(now()) @map("created_at")
+  expiresAt    DateTime @map("expires_at")
+  lastActivity DateTime @default(now()) @map("last_activity")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([sessionToken])
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+// Екіпажі
+model Crew {
+  id        Int      @id @default(autoincrement())
+  name      String
+  uavType   String?  @map("uav_type")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  personnel Personnel[]
+
+  @@map("crews")
+}
+
+// Особовий склад (згідно вимог)
+model Personnel {
+  id               Int      @id @default(autoincrement())
+  serviceNumber    String   @unique @map("service_number")
+  rank             String
+  fullName         String   @map("full_name")
+  position         String
+  unit             String // NOTE: Наразі String, не FK до Unit
+  phone            String?
+  combatZoneAccess Boolean  @default(false) @map("combat_zone_access")
+  crewId           Int?     @map("crew_id")
+  userId           Int?     @unique @map("user_id")
+  login            String?  @unique
+  passwordHash     String?  @map("password_hash")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  crew Crew? @relation(fields: [crewId], references: [id], onDelete: SetNull)
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  courseAssignments CourseAssignment[]
+
+  @@index([serviceNumber])
+  @@index([crewId])
+  @@index([userId])
+  @@map("personnel")
+}
+
+// Курси
+model Course {
+  id                       Int      @id @default(autoincrement())
+  title                    String
+  description              String?
+  content                  String? // JSON
+  testId                   Int?     @map("test_id")
+  createdBy                Int      @map("created_by")
+  isPublished              Boolean  @default(false) @map("is_published")
+  orderIndex               Int      @default(0) @map("order_index")
+  requiresPreviousCourseId Int?     @map("requires_previous_course_id")
+  createdAt                DateTime @default(now()) @map("created_at")
+  updatedAt                DateTime @updatedAt @map("updated_at")
+
+  courseAssignments CourseAssignment[]
+  modules           CourseModule[]
+
+  @@index([createdBy])
+  @@index([isPublished])
+  @@index([requiresPreviousCourseId])
+  @@index([orderIndex])
+  @@map("courses")
+}
+
+// Призначення курсів (згідно вимог)
+model CourseAssignment {
+  id          Int      @id @default(autoincrement())
+  personnelId Int      @map("personnel_id")
+  courseId    Int      @map("course_id")
+  assignedBy  Int?     @map("assigned_by")
+  assignedAt  DateTime @default(now()) @map("assigned_at")
+  status      String   @default("assigned") // assigned, in_progress, completed, failed
+
+  personnel Personnel @relation(fields: [personnelId], references: [id], onDelete: Cascade)
+  course    Course    @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([personnelId, courseId])
+  @@index([personnelId])
+  @@index([courseId])
+  @@index([status])
+  @@map("course_assignments")
+}
+
+// Модулі курсів
+model CourseModule {
+  id                       Int      @id @default(autoincrement())
+  courseId                 Int      @map("course_id")
+  title                    String
+  description              String?
+  orderIndex               Int      @default(0) @map("order_index")
+  requiresPreviousModuleId Int?     @map("requires_previous_module_id")
+  createdAt                DateTime @default(now()) @map("created_at")
+  updatedAt                DateTime @updatedAt @map("updated_at")
+
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  @@index([courseId])
+  @@index([courseId, orderIndex])
+  @@map("course_modules")
+}
+
+// Уроки
+model Lesson {
+  id                       Int      @id @default(autoincrement())
+  moduleId                 Int      @map("module_id")
+  title                    String
+  description              String?
+  contentType              String   @map("content_type") // text, video, pdf, mixed
+  textContent              String?  @map("text_content")
+  videoPath                String?  @map("video_path")
+  pdfPath                  String?  @map("pdf_path")
+  minimumTimeSeconds       Int      @default(180) @map("minimum_time_seconds")
+  orderIndex               Int      @default(0) @map("order_index")
+  requiresPreviousLessonId Int?     @map("requires_previous_lesson_id")
+  createdAt                DateTime @default(now()) @map("created_at")
+  updatedAt                DateTime @updatedAt @map("updated_at")
+
+  module CourseModule @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@index([moduleId])
+  @@index([moduleId, orderIndex])
+  @@map("lessons")
+}
+
+// Засоби (БПЛА, обладнання)
+model Equipment {
+  id           Int      @id @default(autoincrement())
+  name         String
+  type         String
+  manufacturer String?
+  notes        String?
+  imagePath    String?  @map("image_path")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("equipment")
+}
+
+// Категорії Бази знань
+model KnowledgeCategory {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  parentId    Int?     @map("parent_id")
+  orderIndex  Int      @default(0) @map("order_index")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  parent    KnowledgeCategory?  @relation("KnowledgeCategoryTree", fields: [parentId], references: [id], onDelete: Cascade)
+  children  KnowledgeCategory[] @relation("KnowledgeCategoryTree")
+  materials KnowledgeMaterial[]
+
+  @@index([parentId])
+  @@index([orderIndex])
+  @@map("knowledge_categories")
+}
+
+// Матеріали Бази знань
+model KnowledgeMaterial {
+  id           Int      @id @default(autoincrement())
+  categoryId   Int      @map("category_id")
+  title        String
+  content      String?
+  materialType String   @map("material_type") // text, pdf, video
+  filePath     String?  @map("file_path")
+  fileSize     Int?
+  mimeType     String?  @map("mime_type")
+  avatarPath   String?  @map("avatar_path")
+  createdBy    Int      @map("created_by")
+  isPublished  Boolean  @default(true) @map("is_published")
+  orderIndex   Int      @default(0) @map("order_index")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  category KnowledgeCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  author   User              @relation(fields: [createdBy], references: [id], onDelete: Cascade)
+
+  @@index([categoryId])
+  @@index([createdBy])
+  @@index([isPublished])
+  @@index([orderIndex])
+  @@map("knowledge_materials")
+}
