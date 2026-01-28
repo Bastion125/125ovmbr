@@ -1310,115 +1310,18 @@ var foreignersFormData = {"ajaxUrl":"","nonce":"","recaptcha":{"enabled":false,"
             });
         };
         
-        async function initAuthCheck() {
-            // Завантажуємо SQL.js для локальної БД (якщо потрібно)
-            if (typeof window !== 'undefined' && !window.SQL) {
-                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js');
-            }
-            
-            // Завантажуємо необхідні скрипти
-            await loadScript('app/scripts/login-init.js');
-            await loadScript('app/scripts/database.js');
-            await loadScript('app/scripts/localApi.js');
-            await loadScript('app/scripts/api.js');
-            
-            // Чекаємо трохи, щоб API встиг ініціалізуватися
-            setTimeout(checkAuthAndRedirect, 300);
-        }
-        
-        function checkAuthAndRedirect() {
-            // Перевіряємо чи API завантажено
-            if (typeof api === 'undefined') {
-                console.log('API not loaded yet, retrying...');
-                setTimeout(checkAuthAndRedirect, 200);
-                return;
-            }
-            
-            const token = api.getToken();
-            if (!token) {
-                // Користувач не залогінений - залишаємося на сторінці
-                return;
-            }
-            
-            // Користувач залогінений - перевіряємо роль та перенаправляємо
-            api.getCurrentUser()
-                .then(response => api.handleResponse(response))
-                .then(data => {
-                    if (data.success && data.user) {
-                        const userRole = data.user.role;
-                        // Перенаправляємо адмінів на admin.html, інших на training.html
-                        if (userRole === 'Admin' || userRole === 'SystemAdmin') {
-                            window.location.href = 'admin.html';
-                        } else {
-                            window.location.href = 'training.html';
-                        }
-                    }
-                })
-                .catch(error => {
-                    // Якщо помилка (наприклад, токен недійсний), залишаємося на сторінці
-                    console.log('Auth check failed, staying on page:', error);
-                    // Видаляємо недійсний токен
-                    if (typeof api !== 'undefined' && api.removeToken) {
-                        api.removeToken();
-                    }
-                });
-        }
-        
-        // Запускаємо перевірку після завантаження DOM
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initAuthCheck);
-        } else {
-            initAuthCheck();
-        }
+        // У спрощеному режимі нічого не робимо: TRS/кабінети відключені
     })();
     
-    // Обробник кнопки меню/входу
+    // Обробник кнопки меню/входу – просто відкриває/закриває меню
     function handleMenuButtonClick(event) {
         event.preventDefault();
-        
-        // Перевіряємо чи користувач залогінений
-        const token = typeof api !== 'undefined' && api.getToken ? api.getToken() : null;
-        
-        if (token) {
-            // Якщо залогінений, показуємо меню (якщо воно закрите) або закриваємо його
-            const menuWrapper = document.querySelector('.menu-wrapper');
-            if (menuWrapper) {
-                const isOpen = menuWrapper.getAttribute('aria-hidden') === 'false';
-                if (isOpen) {
-                    menuWrapper.setAttribute('aria-hidden', 'true');
-                    document.body.classList.remove('menu-open');
-                } else {
-                    menuWrapper.setAttribute('aria-hidden', 'false');
-                    document.body.classList.add('menu-open');
-                }
-            }
-        } else {
-            // Якщо не залогінений, завжди перенаправляємо на login.html
-            window.location.href = 'login.html';
-        }
-    }
-    
-    // Оновлюємо видимість меню на основі статусу авторизації
-    function updateMenuVisibility() {
         const menuWrapper = document.querySelector('.menu-wrapper');
-        const token = typeof api !== 'undefined' && api.getToken ? api.getToken() : null;
-        
         if (menuWrapper) {
-            // Меню доступне тільки для залогінених користувачів
-            // Але кнопка "Вхід" завжди видима
-            // Тут ми просто забезпечуємо, що меню закрито для незалогінених
-            if (!token) {
-                menuWrapper.setAttribute('aria-hidden', 'true');
-                document.body.classList.remove('menu-open');
-            }
+            const isOpen = menuWrapper.getAttribute('aria-hidden') === 'false';
+            menuWrapper.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+            document.body.classList.toggle('menu-open', !isOpen);
         }
-    }
-    
-    // Перевіряємо статус меню при завантаженні
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', updateMenuVisibility);
-    } else {
-        updateMenuVisibility();
     }
 </script>
 <script id="wp-emoji-settings" type="application/json">
