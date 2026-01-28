@@ -1120,6 +1120,21 @@ button.header__btn {
         justify-content: center;
     }
 
+    .direction.section {
+        padding-top: 2.5rem;
+    }
+
+    .direction.section h2 {
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .direction.section .text p {
+        font-size: 14px;
+    }
+
     .soldier-card,
     .direction__item,
     .faq-item,
@@ -1149,5 +1164,22 @@ button.header__btn {
         max-width: 38rem;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    /* Contact / join section tweaks */
+    .contact.section h2 {
+        text-align: center;
+        margin-bottom: 1.75rem;
+    }
+
+    .contact__media {
+        display: block;
+        max-width: 260px;
+        margin: 0 auto 1.5rem;
+        height: auto;
+    }
+
+    .contact-form .col-lg-6 {
+        width: 100%;
     }
 }
