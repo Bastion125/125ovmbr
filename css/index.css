@@ -1089,3 +1089,65 @@ button.header__btn {
         gap: 1.5rem;
     }
 }
+
+/* Additional mobile layout refinements */
+@media (max-width: 767.98px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    section.section,
+    section.about,
+    section.choice,
+    section.contact {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .about.about-fullscreen .v-wrap {
+        height: 100vh;
+        min-height: 520px;
+    }
+
+    .about.about-fullscreen .video-center-title {
+        font-size: clamp(24px, 7vw, 40px);
+    }
+
+    .about.about-fullscreen .video-center-links {
+        flex-wrap: wrap;
+        row-gap: 8px;
+        justify-content: center;
+    }
+
+    .soldier-card,
+    .direction__item,
+    .faq-item,
+    .profession-card {
+        width: 100%;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .soldier-card,
+    .direction__item {
+        padding: 1.2rem 1rem;
+    }
+
+    .btn,
+    button,
+    input[type="submit"],
+    .form-control {
+        min-height: 44px;
+    }
+
+    .section-heading,
+    .section-heading .lead,
+    .about .text,
+    .about p {
+        max-width: 38rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
