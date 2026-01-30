@@ -905,7 +905,8 @@ button.header__btn {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     border-radius: 1.5rem;
     margin-bottom: 2rem;
     width: min(1208px, 100%);
@@ -936,6 +937,9 @@ button.header__btn {
     inset: 0;
     background: transparent;
     pointer-events: none;
+}
+.contact__gallery-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .contact .row h2 {
