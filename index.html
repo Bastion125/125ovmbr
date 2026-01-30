@@ -604,31 +604,41 @@ section.about ~ section {
     top: auto !important;
     transform: none !important;
 }
-/* Великий логотип в низу сайту */
-.footer-logo.section {
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-}
-.footer-logo__wrap {
+/* Логотип під слоганом у why-join */
+.why-join__logo {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1.5rem;
 }
-.footer-logo-link {
+.why-join .footer-logo-link {
     display: inline-block;
     line-height: 0;
 }
-.footer-logo-img {
+.why-join .footer-logo-img {
     width: 200px;
     height: auto;
     max-height: 220px;
     object-fit: contain;
 }
 @media (min-width: 768px) {
-    .footer-logo-img {
+    .why-join .footer-logo-img {
         width: 240px;
         max-height: 260px;
     }
+}
+/* Прибрати жовті лінії в why-join */
+.why-join.section::before,
+.why-join.section::after {
+    display: none !important;
+}
+/* Хедер з суцільним фоном після скролу під відео */
+.header {
+    transition: background-color 0.25s ease;
+}
+.header.header--solid {
+    background: rgba(8, 8, 8, 0.97);
+    backdrop-filter: blur(8px);
 }
 </style>
 </head>
@@ -642,7 +652,7 @@ section.about ~ section {
     <!-- End Google Tag Manager (noscript) -->
     
 
-<header class="header">
+<header class="header" id="mainHeader">
     <div class="container">
         <div class="row gx-0 align-items-center">
             <div class="col-4" style="display: flex; align-items: center; gap: 15px; position: relative; flex-wrap: wrap;">
@@ -1101,12 +1111,7 @@ section.about ~ section {
         <div class="section-heading text-center">
             <h2>ТУТ ТИ ТВОРИШ МАЙБУТНЄ</h2>
         </div>
-    </div>
-</section>
-
-<section class="footer-logo section">
-    <div class="container">
-        <div class="footer-logo__wrap text-center">
+        <div class="why-join__logo text-center">
             <a href="index.html" class="footer-logo-link" rel="home" aria-label="125 окрема важка механізована бригада">
                 <img src="images/ШЕВРОН.png" class="footer-logo-img custom-logo" alt="125 окрема важка механізована бригада" width="200" height="200" decoding="async">
             </a>
@@ -1631,5 +1636,30 @@ document.addEventListener('DOMContentLoaded', () => {
 if (document.readyState !== 'loading') {
     initDirectionModalButtons();
 }
+
+// Хедер: суцільний фон, коли скрол пройшов під відео (about)
+(function() {
+    function updateHeaderSolid() {
+        var header = document.getElementById('mainHeader');
+        var aboutVideo = document.querySelector('.about section video, section.about video, .about-fullscreen video');
+        var aboutSection = document.querySelector('section.about, .about-fullscreen');
+        var el = aboutVideo || aboutSection;
+        if (!header || !el) return;
+        var rect = el.getBoundingClientRect();
+        var headerTop = header.getBoundingClientRect().top;
+        if (rect.bottom <= headerTop) {
+            header.classList.add('header--solid');
+        } else {
+            header.classList.remove('header--solid');
+        }
+    }
+    window.addEventListener('scroll', updateHeaderSolid, { passive: true });
+    window.addEventListener('resize', updateHeaderSolid);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateHeaderSolid);
+    } else {
+        updateHeaderSolid();
+    }
+})();
 </script>
 </body></html>

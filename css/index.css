@@ -900,7 +900,11 @@ button.header__btn {
 
 .contact__gallery-wrapper {
     position: relative;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
     border-radius: 1.5rem;
     margin-bottom: 2rem;
     background: transparent;
@@ -965,6 +969,7 @@ button.header__btn {
     min-width: min(320px, 22vw);
     flex: 0 0 auto;
     min-height: min(420px, 70vw);
+    scroll-snap-align: start;
 }
 
 .contact-card figcaption {
