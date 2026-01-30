@@ -29,7 +29,7 @@ img.contact__media {
 #mainHeader {
     padding-top: 14px !important;
     padding-bottom: 14px !important;
-    height: 70px;
+    height: 52px;
     position: fixed;
     top: 0;
     left: 0;
@@ -82,9 +82,11 @@ body {
 .header-title-desktop {
     position: absolute;
     display: block;
-    top: -40px;
-    left: 145px;
-    font-size: clamp(18px, 2.2vw, 24px);
+    top: -31px;
+    left: 147px;
+    font-size: 14px;
+    width: 160px;
+    height: 19px;
     color: rgba(246, 146, 30, 1);
     font-weight: 600;
     font-family: "UAF Sans OnBoard Stencil";
@@ -120,13 +122,13 @@ body {
 }
 
 .header .custom-logo {
-    width: 63px;
-    height: 83px;
+    width: 40px;
+    height: 55px;
     padding-top: 0px;
     padding-bottom: 0px;
     position: absolute;
-    left: 87px;
-    top: -55px;
+    left: 109px;
+    top: -49px;
 }
 
 .header .row.gx-0.align-items-center {
@@ -136,13 +138,19 @@ body {
 
 .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
     position: absolute;
-    top: -5px;
+    top: -4px;
     height: 55px;
     margin-left: auto;
     justify-content: flex-end;
     width: auto;
     flex: 0 0 auto;
-    left: 803px;
+    left: 749px;
+}
+
+.header .languages-block {
+    position: absolute;
+    top: 5px;
+    left: 336px;
 }
 
 .header .col-4 {
@@ -785,20 +793,33 @@ h2 {
 }
 
 div.text {
-    font-family: "UAF Sans Wide";
+    font-family: "UAF Sans";
+}
+
+p {
+    font-family: "UAF Sans";
 }
 
 button.header__btn {
-    height: 50px;
-    position: static;
-    top: auto;
-    left: auto;
+    font-size: 12px;
+    height: 32px;
+    width: 175px;
+    gap: 17px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: absolute;
+    left: 151px;
+    top: 3px;
 }
 
 .header__btn {
-    position: static;
-    top: auto;
-    left: auto;
+    position: absolute;
+    left: 151px;
+    top: 3px;
+}
+
+#contactFormModal .modal-header .btn-close {
+    top: 22px;
 }
 
 /* Fullscreen "about" video + centered overlay (browser preview changes) */
