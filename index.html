@@ -87,6 +87,7 @@ var wpml_cookies = {"wp-wpml_current_language":{"value":"uk","expires":1,"path":
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-NH93C3D');</script>
     <!-- End Google Tag Manager -->
+    <!-- Щоб прибрати помилки Clarity (Blocked a frame...), вимкніть Microsoft Clarity у контейнері GTM -->
     <link rel="icon" href="images/ШЕВРОН.png" sizes="32x32">
 <link rel="icon" href="images/ШЕВРОН.png" sizes="192x192">
 <link rel="apple-touch-icon" href="images/ШЕВРОН.png">
@@ -1270,7 +1271,7 @@ var foreignersFormData = {"ajaxUrl":"","nonce":"","recaptcha":{"enabled":false,"
 //# sourceURL=theme-scripts-js-extra
 /* ]]> */
 </script>
-<script type="text/javascript" src="js/index.js" id="theme-scripts-js"></script>
+<script type="text/javascript" src="js/index.js" id="theme-scripts-js" defer></script>
 <script type="text/javascript" src="js/home-video.js"></script>
 <script type="text/javascript" src="js/api.js" id="google-recaptcha-js"></script>
 <!-- Auth check script for redirecting logged in users -->
@@ -1666,27 +1667,11 @@ if (document.readyState !== 'loading') {
     }, { passive: true });
 })();
 
-// Хедер: суцільний фон під відео; ховається лише при скролі вгору
+// Хедер: завжди видимий зверху; суцільний фон під відео
 (function() {
-    var lastScrollY = 0;
-    var scrollThreshold = 80;
-
     function updateHeader() {
         var header = document.getElementById('mainHeader');
         if (!header) return;
-
-        var currentScrollY = window.scrollY || window.pageYOffset;
-
-        if (currentScrollY > scrollThreshold) {
-            if (currentScrollY > lastScrollY) {
-                header.classList.remove('header--hidden');
-            } else {
-                header.classList.add('header--hidden');
-            }
-        } else {
-            header.classList.remove('header--hidden');
-        }
-        lastScrollY = currentScrollY;
 
         var aboutVideo = document.querySelector('.about section video, section.about video, .about-fullscreen video');
         var aboutSection = document.querySelector('section.about, .about-fullscreen');

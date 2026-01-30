@@ -517,6 +517,31 @@ body {
     z-index: 1;
 }
 
+/* Section layout overrides (from preview) */
+section.direction.section {
+    height: 1266px;
+}
+
+section.contact.section {
+    height: 447px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+section.contact.section .container {
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+
+section.why-join.section {
+    height: 286px;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: static;
+}
+
 /* Modal backdrop should be transparent */
 .modal-backdrop,
 .modal-backdrop.show {
