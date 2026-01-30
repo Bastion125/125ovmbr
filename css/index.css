@@ -36,6 +36,15 @@ img.contact__media {
     right: 0;
     border-bottom: none !important;
     z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.header.header--hidden {
+    transform: translateY(-100%);
+}
+
+.direction.section .text p {
+    font-weight: normal;
 }
 
 .header .container,
@@ -1154,6 +1163,7 @@ button.header__btn {
 
     .direction.section .text p {
         font-size: 14px;
+        font-weight: normal;
     }
 
     .soldier-card,

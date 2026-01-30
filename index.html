@@ -1666,14 +1666,32 @@ if (document.readyState !== 'loading') {
     }, { passive: true });
 })();
 
-// Хедер: суцільний фон, коли скрол пройшов під відео (about)
+// Хедер: суцільний фон під відео; ховається лише при скролі вгору
 (function() {
-    function updateHeaderSolid() {
+    var lastScrollY = 0;
+    var scrollThreshold = 80;
+
+    function updateHeader() {
         var header = document.getElementById('mainHeader');
+        if (!header) return;
+
+        var currentScrollY = window.scrollY || window.pageYOffset;
+
+        if (currentScrollY > scrollThreshold) {
+            if (currentScrollY > lastScrollY) {
+                header.classList.remove('header--hidden');
+            } else {
+                header.classList.add('header--hidden');
+            }
+        } else {
+            header.classList.remove('header--hidden');
+        }
+        lastScrollY = currentScrollY;
+
         var aboutVideo = document.querySelector('.about section video, section.about video, .about-fullscreen video');
         var aboutSection = document.querySelector('section.about, .about-fullscreen');
         var el = aboutVideo || aboutSection;
-        if (!header || !el) return;
+        if (!el) return;
         var rect = el.getBoundingClientRect();
         var headerTop = header.getBoundingClientRect().top;
         if (rect.bottom <= headerTop) {
@@ -1682,12 +1700,12 @@ if (document.readyState !== 'loading') {
             header.classList.remove('header--solid');
         }
     }
-    window.addEventListener('scroll', updateHeaderSolid, { passive: true });
-    window.addEventListener('resize', updateHeaderSolid);
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', updateHeaderSolid);
+        document.addEventListener('DOMContentLoaded', updateHeader);
     } else {
-        updateHeaderSolid();
+        updateHeader();
     }
 })();
 </script>
