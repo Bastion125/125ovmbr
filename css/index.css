@@ -898,6 +898,7 @@ button.header__btn {
     border: 0 !important;
 }
 
+/* Риска над галереєю контактів + напівпрозорі стілки зліва/справа */
 .contact__gallery-wrapper {
     position: relative;
     overflow-x: auto;
@@ -907,12 +908,28 @@ button.header__btn {
     scrollbar-width: thin;
     border-radius: 1.5rem;
     margin-bottom: 2rem;
-    background: transparent;
     width: min(1208px, 100%);
     margin-left: auto;
     margin-right: auto;
+    background-image:
+        linear-gradient(90deg, rgba(8, 8, 8, 0.6) 0%, transparent 70px),
+        linear-gradient(270deg, rgba(8, 8, 8, 0.6) 0%, transparent 70px);
+    background-position: left top, right top;
+    background-size: 70px 100%;
+    background-repeat: no-repeat;
 }
-
+.contact__gallery-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(246, 146, 30, 0.35) 50%, transparent 100%);
+    opacity: 0.7;
+    z-index: 2;
+    pointer-events: none;
+}
 .contact__gallery-wrapper::after {
     content: "";
     position: absolute;
@@ -943,7 +960,8 @@ button.header__btn {
     -webkit-transform: translate3d(0, 0, 0);
 }
 
-.contact__gallery-track:hover {
+.contact__gallery-track:hover,
+.contact__gallery-track.contact__gallery-track--paused {
     animation-play-state: paused;
 }
 
