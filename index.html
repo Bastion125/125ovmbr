@@ -604,6 +604,32 @@ section.about ~ section {
     top: auto !important;
     transform: none !important;
 }
+/* Великий логотип в низу сайту */
+.footer-logo.section {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+.footer-logo__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-logo-link {
+    display: inline-block;
+    line-height: 0;
+}
+.footer-logo-img {
+    width: 200px;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+}
+@media (min-width: 768px) {
+    .footer-logo-img {
+        width: 240px;
+        max-height: 260px;
+    }
+}
 </style>
 </head>
 
@@ -1074,6 +1100,16 @@ section.about ~ section {
     <div class="container">
         <div class="section-heading text-center">
             <h2>ТУТ ТИ ТВОРИШ МАЙБУТНЄ</h2>
+        </div>
+    </div>
+</section>
+
+<section class="footer-logo section">
+    <div class="container">
+        <div class="footer-logo__wrap text-center">
+            <a href="index.html" class="footer-logo-link" rel="home" aria-label="125 окрема важка механізована бригада">
+                <img src="images/ШЕВРОН.png" class="footer-logo-img custom-logo" alt="125 окрема важка механізована бригада" width="200" height="200" decoding="async">
+            </a>
         </div>
     </div>
 </section>
