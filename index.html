@@ -256,12 +256,12 @@ section.about ~ section {
     transition: background 0.3s ease;
 }
 .direction-btn-icon::before {
-    width: 30px;
-    height: 4px;
+    width: 20px;
+    height: 3px;
 }
 .direction-btn-icon::after {
-    width: 4px;
-    height: 30px;
+    width: 3px;
+    height: 20px;
 }
 .direction-icon--vyvyliai { background-position: 0% 0%; }      /* Виявляй – 1 ряд, 1 колонка */
 .direction-icon--analizui { background-position: 50% 0%; }      /* Аналізуй – 1 ряд, 2 колонка */
@@ -355,8 +355,10 @@ section.about ~ section {
     padding: 0;
 }
 .direction__items .direction-btn-icon {
-    width: 60px;
-    height: 60px;
+    width: 42px;
+    height: 34px;
+    margin-top: -1px;
+    margin-bottom: -1px;
 }
 @media (max-width: 768px) {
     .direction__items .direction__item {
@@ -380,25 +382,33 @@ section.about ~ section {
         height: 56px;
     }
     .direction__items .direction-btn-icon {
-        width: 48px;
-        height: 48px;
+        width: 36px;
+        height: 28px;
     }
     .direction-btn-icon::before {
-        width: 24px;
-        height: 3px;
+        width: 16px;
+        height: 2px;
     }
     .direction-btn-icon::after {
-        width: 3px;
-        height: 24px;
+        width: 2px;
+        height: 16px;
     }
 }
 /* Direction Modal Styles (для модальних вікон напрямків з зображеннями) */
+.direction-modal-images {
+    margin-bottom: 24px;
+}
+.direction-modal-images .direction-modal-image {
+    margin-bottom: 16px;
+}
+.direction-modal-images .direction-modal-image:last-child {
+    margin-bottom: 0;
+}
 .direction-modal-image {
     width: 100%;
     max-width: 100%;
     height: auto;
     border-radius: 12px;
-    margin-bottom: 24px;
     border: 2px solid rgba(246, 146, 30, 0.3);
     box-shadow: 0 8px 24px rgba(246, 146, 30, 0.2);
 }
@@ -1057,114 +1067,13 @@ section.about ~ section {
             </figure>
         </div>
         </div>
-        <div class="row row-gap-3">
-            <h2 class="mb-3 mb-lg-5">Приєднуйся</h2>
-            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                <img class="contact__media w-md-100" src="images/ШЕВРОН.png" alt="" width="492" height="481">
-            </div>
-            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-                
-<form class="contact-form needs-validation" novalidate="" method="post">
-    <div class="row gx-3">
-        <div class="col-lg-6">
-            <!-- Last name -->
-            <div class="mb-2 mb-lg-3">
-                <label for="name2-1" class="form-label">Прізвище*</label>
-                <input type="text" class="form-control" id="name2-1" name="name2" autocomplete="off" required="" placeholder="Прізвище">
-            </div>
-
-            <!-- First name -->
-            <div class="mb-2 mb-lg-3">
-                <label for="name-1" class="form-label">Ім'я*</label>
-                <input type="text" class="form-control" id="name-1" name="name" autocomplete="off" required="" placeholder="Ім'я">
-            </div>
-
-            <!-- Patronymic -->
-            <div class="mb-2 mb-lg-3">
-                <label for="name3-1" class="form-label">По батькові</label>
-                <input type="text" class="form-control" id="name3-1" name="name3" placeholder="По батькові" autocomplete="off">
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <!-- Phone -->
-            <div class="mb-2 mb-lg-3">
-                <label for="phone-1" class="form-label">Номер телефону*</label>
-                <input type="tel" class="form-control" id="phone-1" name="phone" autocomplete="off" required="" placeholder="+38 (__) ___-__-__">
-            </div>
-
-            <!-- Social network -->
-            <div class="mb-2 mb-lg-3">
-                <label for="social-1" class="form-label">Соцмережа*</label>
-                <select class="form-select" id="social-1" name="social" required="">
-                    <option value="" selected="" disabled="">Оберіть соцмережу</option>
-                    <option value="Telegram">Telegram</option>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="Signal">Signal</option>
-                    <option value="Instagram">Instagram</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Інше">Інше</option>
-                </select>
-            </div>
-            <div class="mb-2 mb-lg-3">
-                <label for="social-handle-1" class="form-label">Нік / посилання*</label>
-                <input type="text" class="form-control" id="social-handle-1" name="social_handle" placeholder="@username або посилання" autocomplete="off" required="">
-            </div>
-
-            <!-- Military Experience Radio Buttons -->
-            <div class="mb-3 mt-lg-6">
-                <label class="form-label d-block" for="military-1-1">Чи є військовослужбовцем на даний момент?</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="military" id="military-1-1" value="yes" checked="">
-                    <label class="form-check-label" for="military-1-1">
-                        Так                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="military" id="military-2-1" value="no">
-                    <label class="form-check-label" for="military-2-1">
-                        Ні                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12">
-            <!-- Privacy Policy Checkbox -->
-            <div class="mb-3">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="privacy_agreement-1" name="privacy_agreement" checked="" required="">
-                    <label class="form-check-label" for="privacy_agreement-1">
-                        Я погоджуюсь з <a href="/privacy-policy/" target="_blank">Політикою конфіденційності</a> та підтверджую, що мені від 18 до 58 років*
-                    </label>
-                </div>
-            </div>
-
-            <!--  Hidden fields  -->
-            <input name="sitename" type="hidden" value="">
-            <input name="utm_campaign" type="hidden">
-            <input name="utm_content" type="hidden">
-            <input name="utm_medium" type="hidden">
-            <input name="utm_source" type="hidden">
-            <input name="utm_term" type="hidden">
-            <input name="gclid" type="hidden">
-            <input name="referrer" type="hidden">
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn w-100">
-                Залишити заявку            </button>
-        </div>
-    </div>
-</form>
-
-            </div>
-        </div>
     </div>
 </section>
 
 <section class="why-join section">
     <div class="container">
         <div class="section-heading text-center">
-            <p class="eyebrow">Чому з нами</p>
             <h2>ТУТ ТИ СТВОРЮЄШ МАЙБУТНЄ</h2>
-            <p class="lead">Тримаємо лінію. Тримаємо країну.</p>
         </div>
     </div>
 </section>
@@ -1413,7 +1322,7 @@ const directionModalData = {
     'Літай': {
         title: 'Літай',
         role: 'Робота пілотів і екіпажів безпілотних авіаційних комплексів.',
-        image: '/images/NW0A0936.jpg',
+        images: ['images/direction-litay-1.png'],
         icon: '/images/free-icon-quadcopter-13702815.png',
         description: 'Виконувати польоти для розвідки, спостереження, коригування та ураження цілей; давати підрозділу точну інформацію з повітря і допомагати приймати правильні рішення на землі.'
     },
@@ -1448,7 +1357,7 @@ const directionModalData = {
     'Уражай': {
         title: 'Уражай',
         role: 'Робота артилерійських підрозділів і розрахунків.',
-        image: '/images/621746067_885643637506812_1330632440668125164_n.jpg',
+        images: ['images/direction-urazhai-1.png', 'images/direction-urazhai-2.png', 'images/direction-urazhai-3.png'],
         icon: '/images/free-icon-quadcopter-13702815.png',
         description: 'Працювати з дальності, за розрахунком і взаємодією; підтримувати свої підрозділи вогнем, змінювати хід бою ще до безпосереднього контакту з противником.'
     },
@@ -1527,7 +1436,7 @@ function openDirectionModal(directionKey) {
                 </div>
                 <div class="profession-modal-body">
                     <div class="profession-modal-role direction-modal-role"></div>
-                    <img class="direction-modal-image" src="" alt="" onerror="this.style.display='none';">
+                    <div class="direction-modal-images"></div>
                     <div class="direction-modal-description"></div>
                 </div>
             </div>
@@ -1545,11 +1454,19 @@ function openDirectionModal(directionKey) {
         roleEl.textContent = data.role || '';
         roleEl.style.display = data.role ? 'block' : 'none';
     }
-    const img = modal.querySelector('.direction-modal-image');
-    if (img) {
-        img.src = data.image;
-        img.alt = data.title;
-        img.style.display = data.image ? 'block' : 'none';
+    const imagesContainer = modal.querySelector('.direction-modal-images');
+    if (imagesContainer) {
+        imagesContainer.innerHTML = '';
+        const images = data.images && data.images.length ? data.images : (data.image ? [data.image] : []);
+        images.forEach(function(src) {
+            const img = document.createElement('img');
+            img.className = 'direction-modal-image';
+            img.src = src;
+            img.alt = data.title;
+            img.onerror = function() { this.style.display = 'none'; };
+            if (src) imagesContainer.appendChild(img);
+        });
+        imagesContainer.style.display = images.length ? 'block' : 'none';
     }
     const descEl = modal.querySelector('.direction-modal-description');
     if (descEl) {
