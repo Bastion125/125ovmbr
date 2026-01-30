@@ -28,15 +28,11 @@ img.contact__media {
 .header {
     padding-top: 14px !important;
     padding-bottom: 14px !important;
-    height: 21px !important;
-    min-height: 21px !important;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: transparent !important;
     border-bottom: none !important;
-    backdrop-filter: none !important;
     z-index: 10;
 }
 

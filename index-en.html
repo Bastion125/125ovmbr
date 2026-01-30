@@ -632,8 +632,13 @@ section.about ~ section {
 .why-join.section::after {
     display: none !important;
 }
-/* Хедер: затемнений фон над відео, суцільний чорний після скролу */
+/* Хедер: завжди зафіксований зверху, не скролиться разом із сайтом */
 .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000;
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
     background: rgba(0, 0, 0, 0.55) !important;
     backdrop-filter: blur(10px);
@@ -1641,7 +1646,7 @@ if (document.readyState !== 'loading') {
     initDirectionModalButtons();
 }
 
-// Контакт-галерея: пауза анімації при взаємодії, відновлення через 5 с
+// Контакт-галерея: пауза анімації лише при скролі/дотику саме галереї, відновлення через 5 с
 (function() {
     var wrapper = document.getElementById('contactGalleryWrapper');
     var track = document.getElementById('contactGalleryTrack');
@@ -1656,7 +1661,9 @@ if (document.readyState !== 'loading') {
     }
     wrapper.addEventListener('touchstart', pauseAndResumeLater, { passive: true });
     wrapper.addEventListener('scroll', pauseAndResumeLater, { passive: true });
-    wrapper.addEventListener('wheel', pauseAndResumeLater, { passive: true });
+    wrapper.addEventListener('wheel', function(e) {
+        if (e.deltaX !== 0) pauseAndResumeLater();
+    }, { passive: true });
 })();
 
 // Хедер: суцільний фон, коли скрол пройшов під відео (about)
