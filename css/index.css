@@ -802,7 +802,7 @@ p {
 }
 
 button.header__btn {
-    font-size: 12px;
+    font-size: 11px;
     height: 32px;
     width: 175px;
     gap: 17px;
@@ -817,6 +817,11 @@ button.header__btn {
     position: absolute;
     left: 151px;
     top: 3px;
+}
+
+/* Зменшений шрифт для кнопок "Як приєднатись?" */
+button[data-bs-target="#contactFormModal"] {
+    font-size: 11px;
 }
 
 #contactFormModal .modal-header .btn-close {
