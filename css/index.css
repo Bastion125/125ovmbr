@@ -38,8 +38,8 @@ img.contact__media {
 #mainHeader {
     padding-top: max(14px, var(--safe-top)) !important;
     padding-bottom: 14px !important;
-    min-height: 52px;
-    height: auto;
+    min-height: 56px;
+    height: 56px;
     position: fixed;
     top: 0;
     left: 0;
@@ -206,7 +206,7 @@ body {
         display: inline-flex !important;
         visibility: visible !important;
         opacity: 1 !important;
-        font-size: 12px;
+        font-size: 11px;
         padding: 6px 12px;
     }
 }
@@ -907,7 +907,7 @@ p {
 }
 
 button.header__btn {
-    font-size: 13px;
+    font-size: 11px;
     height: 32px;
     min-height: 36px;
     width: 155px;
@@ -926,7 +926,7 @@ button.header__btn {
 
 /* Зменшений шрифт для кнопок "Як приєднатись?" */
 button[data-bs-target="#contactFormModal"] {
-    font-size: 13px;
+    font-size: 11px;
 }
 
 #contactFormModal .modal-header .btn-close {
