@@ -79,7 +79,8 @@ body {
 
 
 .header .container {
-    height: 79px;
+    height: 75px;
+    min-height: 75px;
     padding-left: 20px;
     padding-right: 20px;
     position: relative;
@@ -135,24 +136,21 @@ body {
         height: auto;
         min-height: 52px;
     }
-    /* Логотип і назва в один ряд зліва, як на ПК */
+    /* Мобільний хедер: логотип + абревіатура ОВМБр */
     .header-title-desktop {
+        display: none !important;
+    }
+    .header-title-mobile {
         display: block !important;
         position: relative;
         top: auto;
         left: auto;
-        font-size: 12px;
+        font-size: 14px;
         color: rgba(246, 146, 30, 1);
         font-family: "UAF Sans OnBoard Stencil", sans-serif;
         font-weight: 600;
         line-height: 1.15;
-        letter-spacing: -0.4px;
-        max-width: min(42vw, 180px);
-        width: auto;
-        height: auto;
-    }
-    .header-title-mobile {
-        display: none !important;
+        letter-spacing: 0.02em;
     }
     .header .custom-logo {
         width: 40px;
@@ -176,7 +174,7 @@ body {
         position: relative;
         left: auto !important;
     }
-    /* Кнопка «Як приєднатись?» та меню справа, завжди видимі */
+    /* Кнопка «Як приєднатись?», мова та меню справа */
     .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
         position: relative;
         left: auto !important;
@@ -185,11 +183,15 @@ body {
         flex: 0 0 auto;
         min-width: 0;
         display: flex !important;
+        justify-content: flex-end;
+        gap: 0.5rem;
     }
-    .header .languages-block {
+    .header .languages-block,
+    .header .languages-block-header {
         position: relative;
         left: auto;
         top: auto;
+        display: block !important;
     }
     button.header__btn,
     .header__btn {
@@ -223,8 +225,13 @@ body {
 
 @media (min-width: 769px) {
     .header .row.gx-0.align-items-center {
-        height: 72px;
+        height: 68px;
+        min-height: 68px;
         justify-content: space-between;
+    }
+    .header .container {
+        height: 73px;
+        min-height: 73px;
     }
 }
 
@@ -926,6 +933,13 @@ button[data-bs-target="#contactFormModal"] {
     top: 22px;
 }
 
+@media (min-width: 769px) {
+    #contactFormModal .btn,
+    #contactFormModal button:not(.btn-close) {
+        font-size: 12px;
+    }
+}
+
 /* Modal fullscreen on small screens (mobile recommendations) */
 @media (max-width: 576px) {
     #contactFormModal .modal-dialog {
@@ -1086,7 +1100,7 @@ button[data-bs-target="#contactFormModal"] {
 /* Риска над галереєю контактів + напівпрозорі стілки зліва/справа */
 .contact__gallery-wrapper {
     position: relative;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
@@ -1248,21 +1262,21 @@ button[data-bs-target="#contactFormModal"] {
 
 @keyframes contact-slide {
     from {
-        transform: translateX(-50%);
+        transform: translateX(0);
     }
     to {
-        transform: translateX(0);
+        transform: translateX(-50%);
     }
 }
 
 @-webkit-keyframes contact-slide {
     from {
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
-    to {
         -webkit-transform: translateX(0);
         transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
 }
 
@@ -1336,11 +1350,13 @@ button[data-bs-target="#contactFormModal"] {
     .direction.section .col-lg-4 h2 {
         font-size: 24px;
         line-height: 1.3;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        height: auto;
+        min-height: 0;
         text-align: left;
     }
     .direction.section .col-lg-4 .text {
-        margin-top: 0.25rem;
+        margin-top: 0.5rem;
     }
     .direction.section .text p {
         font-size: 14px;
@@ -1348,11 +1364,19 @@ button[data-bs-target="#contactFormModal"] {
     }
 
     .direction__items .direction__item {
-        flex-direction: row-reverse;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
     }
     .direction__items .heading {
-        padding-right: 0;
-        padding-left: 8px;
+        padding-right: 8px;
+        padding-left: 0;
+        flex: 1 1 auto;
+        min-width: 0;
+        text-align: justify;
+    }
+    .direction__items .direction__item .params-link {
+        flex-shrink: 0;
     }
 
     .soldier-card,
