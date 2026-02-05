@@ -38,7 +38,8 @@ img.contact__media {
 #mainHeader {
     padding-top: max(14px, var(--safe-top)) !important;
     padding-bottom: 14px !important;
-    height: 52px;
+    min-height: 52px;
+    height: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -94,23 +95,25 @@ body {
     flex-wrap: wrap;
 }
 
-.header-title-desktop {
-    position: absolute;
-    display: block;
-    top: -31px;
-    left: 147px;
-    font-size: 14px;
-    width: 160px;
-    height: 19px;
-    color: rgba(246, 146, 30, 1);
-    font-weight: 600;
-    font-family: "UAF Sans OnBoard Stencil";
-    line-height: 1.15;
-    text-align: left;
-    letter-spacing: -0.4px;
-    max-width: min(46vw, 680px);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+@media (min-width: 769px) {
+    .header-title-desktop {
+        position: absolute;
+        display: block;
+        top: -31px;
+        left: 147px;
+        font-size: 14px;
+        width: 160px;
+        height: 19px;
+        color: rgba(246, 146, 30, 1);
+        font-weight: 600;
+        font-family: "UAF Sans OnBoard Stencil";
+        line-height: 1.15;
+        text-align: left;
+        letter-spacing: -0.4px;
+        max-width: min(46vw, 680px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
 }
 
 .header-title-mobile {
@@ -121,34 +124,42 @@ body {
     .header {
         overflow: visible;
     }
+    .header .container {
+        height: auto;
+        min-height: 52px;
+    }
     .header .row.gx-0.align-items-center {
         flex-wrap: nowrap;
         justify-content: space-between;
+        align-items: center;
+        height: auto;
+        min-height: 52px;
     }
-    /* Логотип і назва як на ПК: той самий вигляд */
+    /* Логотип і назва в один ряд зліва, як на ПК */
     .header-title-desktop {
+        display: block !important;
         position: relative;
         top: auto;
         left: auto;
-        font-size: 14px;
+        font-size: 12px;
         color: rgba(246, 146, 30, 1);
         font-family: "UAF Sans OnBoard Stencil", sans-serif;
         font-weight: 600;
         line-height: 1.15;
         letter-spacing: -0.4px;
-        max-width: min(46vw, 200px);
+        max-width: min(42vw, 180px);
         width: auto;
         height: auto;
     }
     .header-title-mobile {
-        display: none;
+        display: none !important;
     }
     .header .custom-logo {
         width: 40px;
         height: 55px;
-        position: relative;
-        left: auto;
-        top: auto;
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
     }
     .header .custom-logo-link {
         display: flex;
@@ -159,12 +170,13 @@ body {
         flex: 1 1 auto;
         min-width: 0;
         flex-wrap: nowrap;
+        flex-direction: row !important;
+        align-items: center !important;
         gap: 10px;
-        align-items: center;
         position: relative;
         left: auto !important;
     }
-    /* Кнопки на тих самих місцях справа, не сховані */
+    /* Кнопка «Як приєднатись?» та меню справа, завжди видимі */
     .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
         position: relative;
         left: auto !important;
@@ -172,6 +184,7 @@ body {
         height: auto;
         flex: 0 0 auto;
         min-width: 0;
+        display: flex !important;
     }
     .header .languages-block {
         position: relative;
@@ -184,47 +197,56 @@ body {
         left: auto;
         top: auto;
         margin-left: auto;
-        min-height: 44px;
-        height: 44px;
+        min-height: 40px;
+        height: 40px;
         width: auto;
         flex-shrink: 0;
         display: inline-flex !important;
         visibility: visible !important;
-        font-size: 13px;
-        padding: 8px 14px;
+        opacity: 1 !important;
+        font-size: 12px;
+        padding: 6px 12px;
     }
 }
 
-.header .custom-logo {
-    width: 40px;
-    height: 55px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    position: absolute;
-    left: 109px;
-    top: -49px;
+@media (min-width: 769px) {
+    .header .custom-logo {
+        width: 40px;
+        height: 55px;
+        padding-top: 0;
+        padding-bottom: 0;
+        position: absolute;
+        left: 109px;
+        top: -49px;
+    }
 }
 
-.header .row.gx-0.align-items-center {
-    height: 72px;
-    justify-content: space-between;
+@media (min-width: 769px) {
+    .header .row.gx-0.align-items-center {
+        height: 72px;
+        justify-content: space-between;
+    }
 }
 
-.header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
-    position: absolute;
-    top: -4px;
-    height: 55px;
-    margin-left: auto;
-    justify-content: flex-end;
-    width: auto;
-    flex: 0 0 auto;
-    left: 749px;
+@media (min-width: 769px) {
+    .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
+        position: absolute;
+        top: -4px;
+        height: 55px;
+        margin-left: auto;
+        justify-content: flex-end;
+        width: auto;
+        flex: 0 0 auto;
+        left: 749px;
+    }
 }
 
-.header .languages-block {
-    position: absolute;
-    top: 5px;
-    left: 336px;
+@media (min-width: 769px) {
+    .header .languages-block {
+        position: absolute;
+        top: 5px;
+        left: 336px;
+    }
 }
 
 .header .col-4 {
@@ -1051,13 +1073,13 @@ button[data-bs-target="#contactFormModal"] {
     border: 0 !important;
 }
 
-/* Заголовок над галереєю командирів */
+/* Заголовок над галереєю командирів — колір як у direction h2 */
 .contact__gallery-heading {
     font-family: "UAF Sans OnBoard Stencil", sans-serif;
     font-size: clamp(28px, 3.5vw, 42px);
     text-align: center;
     margin: 0 0 1.25rem;
-    color: #fff;
+    color: rgba(246, 146, 30, 1);
     letter-spacing: 0.02em;
 }
 
@@ -1226,21 +1248,21 @@ button[data-bs-target="#contactFormModal"] {
 
 @keyframes contact-slide {
     from {
-        transform: translateX(0);
+        transform: translateX(-50%);
     }
     to {
-        transform: translateX(-50%);
+        transform: translateX(0);
     }
 }
 
 @-webkit-keyframes contact-slide {
     from {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-    to {
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
 }
 
@@ -1310,13 +1332,16 @@ button[data-bs-target="#contactFormModal"] {
         padding-top: 2.5rem;
     }
 
-    .direction.section h2 {
+    .direction.section h2,
+    .direction.section .col-lg-4 h2 {
         font-size: 24px;
         line-height: 1.3;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         text-align: left;
     }
-
+    .direction.section .col-lg-4 .text {
+        margin-top: 0.25rem;
+    }
     .direction.section .text p {
         font-size: 14px;
         font-weight: normal;

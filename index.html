@@ -113,23 +113,8 @@ var wpml_cookies = {"wp-wpml_current_language":{"value":"uk","expires":1,"path":
 .header-menu .menu-item > a:hover {
     text-decoration: underline;
 }
-/* Мобільні стилі для header */
-@media (max-width: 768px) {
-    .header-title-desktop {
-        display: none !important;
-    }
-    .header-title-mobile {
-        display: block !important;
-    }
-    .header .col-4 {
-        flex-direction: column;
-        align-items: flex-start !important;
-    }
-    .header .col-4 .custom-logo-link {
-        margin-bottom: 0;
-    }
-}
-@media (min-width: 768px) {
+/* Мобільний header: лого+назва в один ряд зліва, кнопка справа (перевизначено в index.css) */
+@media (min-width: 769px) {
     .header-title-mobile {
         display: none !important;
     }
