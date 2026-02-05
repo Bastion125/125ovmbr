@@ -100,7 +100,7 @@ body {
     .header-title-desktop {
         position: absolute;
         display: block;
-        top: -31px;
+        top: -35px;
         left: 147px;
         font-size: 14px;
         width: 160px;
@@ -1156,6 +1156,8 @@ button.header__btn,
     justify-content: flex-start;
     align-items: flex-start;
     animation: contact-slide 45s linear infinite;
+    animation-iteration-count: infinite;
+    width: max-content;
 }
 .contact__gallery-track--paused {
     animation-play-state: paused;
@@ -1258,21 +1260,22 @@ button.header__btn,
     }
 }
 
+/* Нескінченний цикл: рух до -50% (друга копія), потім миттєво 0% — візуально безшовно */
 @keyframes contact-slide {
-    from {
+    0% {
         transform: translateX(0);
     }
-    to {
+    100% {
         transform: translateX(-50%);
     }
 }
 
 @-webkit-keyframes contact-slide {
-    from {
+    0% {
         -webkit-transform: translateX(0);
         transform: translateX(0);
     }
-    to {
+    100% {
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
     }
