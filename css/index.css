@@ -31,6 +31,12 @@ img.contact__media {
     --bp-lg: 992px;
     --safe-top: env(safe-area-inset-top, 0px);
     --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --header-height: 56px;
+}
+@media (min-width: 769px) {
+    :root {
+        --header-height: 80px;
+    }
 }
 
 /* Compact Header Styles */
@@ -89,7 +95,7 @@ body {
 /* Compensate fixed header: first section gets top padding (mobile recommendations) */
 .home-main .about.section,
 .home-main > section:first-of-type {
-    padding-top: max(80px, calc(80px + var(--safe-top)));
+    padding-top: max(var(--header-height), calc(var(--header-height) + var(--safe-top)));
 }
 
 
@@ -257,15 +263,18 @@ body {
         left: auto;
         top: auto;
         margin-left: auto;
-        min-height: 34px;
-        height: 34px;
+        min-height: 44px;
+        min-width: 44px;
+        height: 44px;
         width: auto;
         flex-shrink: 0;
         display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
         visibility: visible !important;
         opacity: 1 !important;
-        font-size: 10px !important;
-        padding: 4px 10px;
+        font-size: 11px !important;
+        padding: 8px 12px;
     }
 }
 
@@ -1367,7 +1376,9 @@ button.header__btn,
     }
 
     .contact-card {
+        width: min(280px, 85vw);
         max-width: min(280px, 85vw);
+        flex: 0 0 min(280px, 85vw);
         flex-shrink: 0;
     }
 
@@ -1563,6 +1574,12 @@ button.header__btn,
     .about.about-fullscreen .video-center-links {
         justify-content: flex-start;
         column-gap: 10px;
+    }
+    .about.about-fullscreen .video-center-links a {
+        min-width: 44px;
+        min-height: 44px;
+        width: 44px;
+        height: 44px;
     }
 
     .direction__item .heading h4,
