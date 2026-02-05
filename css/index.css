@@ -206,7 +206,7 @@ body {
         display: inline-flex !important;
         visibility: visible !important;
         opacity: 1 !important;
-        font-size: 11px;
+        font-size: 11px !important;
         padding: 6px 12px;
     }
 }
@@ -906,27 +906,25 @@ p {
     font-family: "UAF Sans";
 }
 
-button.header__btn {
-    font-size: 11px;
-    height: 32px;
-    min-height: 36px;
-    width: 155px;
+/* Кнопка "Як приєднатись?" в хедері — перебиває Bootstrap .btn */
+button.header__btn,
+#mainHeader button.header__btn,
+#mainHeader .header__btn.btn,
+.header button[data-bs-target="#contactFormModal"] {
+    font-size: 11px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    width: 155px !important;
     gap: 8px;
-    padding: 8px 14px;
-    position: absolute;
-    left: 151px;
-    top: 3px;
+    padding: 8px 14px !important;
+    line-height: 1 !important;
 }
 
+button.header__btn,
 .header__btn {
     position: absolute;
     left: 151px;
     top: 3px;
-}
-
-/* Зменшений шрифт для кнопок "Як приєднатись?" */
-button[data-bs-target="#contactFormModal"] {
-    font-size: 11px;
 }
 
 #contactFormModal .modal-header .btn-close {
