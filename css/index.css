@@ -205,7 +205,7 @@ body {
     .header .languages-block-header.d-none.d-md-block {
         display: block !important;
     }
-    /* Кнопка «Як приєднатись?», мова та меню справа */
+    /* Кнопка «Як приєднатись?», мова та меню справа; порядок: спочатку кнопка, потім мова */
     .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
         position: relative;
         left: auto !important;
@@ -214,8 +214,15 @@ body {
         flex: 0 0 auto;
         min-width: 0;
         display: flex !important;
+        flex-direction: row;
         justify-content: flex-end;
         gap: 0.5rem;
+    }
+    .header .col-8 .header__btn {
+        order: 1;
+    }
+    .header .col-8 .languages-block-header {
+        order: 2;
     }
     .header .languages-block,
     .header .languages-block-header {
@@ -1188,6 +1195,7 @@ button.header__btn,
     align-items: flex-start;
     animation: contact-slide 90s linear infinite;
     animation-iteration-count: infinite;
+    animation-delay: 0s;
     width: max-content;
 }
 .contact__gallery-track--paused {
@@ -1402,19 +1410,19 @@ button.header__btn,
         margin-top: 0.5rem;
     }
     .direction__items .direction__item {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 1rem 1rem;
+        display: block;
+        padding: 1rem;
         min-height: auto;
-        gap: 12px;
     }
     .direction__items .heading {
-        padding-right: 8px;
+        padding-right: 0;
         padding-left: 0;
-        flex: 1 1 auto;
-        min-width: 0;
+        width: 100%;
         text-align: left;
+    }
+    .direction__items .heading p {
+        width: 100%;
+        max-width: 100%;
     }
     .direction__items .direction__item .params-link {
         flex-shrink: 0;
