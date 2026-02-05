@@ -136,6 +136,15 @@ body {
     display: none;
 }
 
+/* Хедер: логотип і назва в один блок (ближче, вище на мобільній) */
+.header .header__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
 @media (max-width: 768px) {
     .header {
         overflow: visible;
@@ -143,6 +152,8 @@ body {
     .header .container {
         height: auto;
         min-height: 52px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
     .header .row.gx-0.align-items-center {
         flex-wrap: nowrap;
@@ -151,7 +162,7 @@ body {
         height: auto;
         min-height: 52px;
     }
-    /* Мобільний хедер: логотип + абревіатура ОВМБр */
+    /* Мобільний хедер: логотип + абревіатура ОВМБр (вище, ближче) */
     .header-title-desktop {
         display: none !important;
     }
@@ -179,15 +190,20 @@ body {
         align-items: center;
         flex-shrink: 0;
     }
+    .header .col-4.header__brand,
     .header .col-4 {
         flex: 1 1 auto;
         min-width: 0;
         flex-wrap: nowrap;
         flex-direction: row !important;
         align-items: center !important;
-        gap: 10px;
+        gap: 8px;
         position: relative;
         left: auto !important;
+    }
+    /* На мобільній: спочатку кнопка «Як приєднатись?», потім вибір мови */
+    .header .languages-block-header.d-none.d-md-block {
+        display: block !important;
     }
     /* Кнопка «Як приєднатись?», мова та меню справа */
     .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
@@ -1113,7 +1129,7 @@ button.header__btn,
 /* Риска над галереєю контактів + напівпрозорі стілки зліва/справа */
 .contact__gallery-wrapper {
     position: relative;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
@@ -1170,7 +1186,7 @@ button.header__btn,
     padding: 1rem 2rem;
     justify-content: flex-start;
     align-items: flex-start;
-    animation: contact-slide 45s linear infinite;
+    animation: contact-slide 90s linear infinite;
     animation-iteration-count: infinite;
     width: max-content;
 }
@@ -1507,4 +1523,17 @@ button.header__btn,
         line-height: 1.25;
         word-break: break-word;
     }
+}
+
+/* Приховуємо reCAPTCHA iframe (помилка "Invalid domain for site key"), якщо віджет не використовується */
+.grecaptcha-badge,
+iframe[src*="recaptcha"],
+iframe[title*="reCAPTCHA"] {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    pointer-events: none !important;
 }

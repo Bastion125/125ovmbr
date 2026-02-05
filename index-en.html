@@ -315,35 +315,43 @@ section.about ~ section {
     gap: 8px;
 }
 .direction__items .direction__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: block;
     padding: 6px 12px;
     width: 100%;
     max-width: 882px;
-    min-height: 70px;
     overflow: visible;
+    cursor: pointer;
 }
 .direction__items .heading {
-    flex: 1;
+    width: 100%;
     min-width: 0;
-    padding-right: 12px;
 }
-.direction__items .heading h4 {
+.direction__items .heading__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+}
+.direction__items .heading__row h4 {
     margin: 0;
     font-size: 1.4rem;
     line-height: 1.3;
+    flex: 1;
+    min-width: 0;
 }
 .direction__items .heading p {
-    margin: 0;
+    margin: 0.25em 0 0;
     font-size: 1rem;
     line-height: 1.35;
     color: rgba(255, 255, 255, 0.85);
+    width: 100%;
 }
 .direction__items .params-link {
     width: 70px;
     height: 70px;
     padding: 0;
+    flex-shrink: 0;
 }
 .direction__items .direction-btn-icon {
     width: 42px;
@@ -351,15 +359,15 @@ section.about ~ section {
     margin-top: -1px;
     margin-bottom: -1px;
 }
+.direction__item:hover .direction-btn-icon::before,
+.direction__item:hover .direction-btn-icon::after {
+    background: #f6921e;
+}
 @media (max-width: 768px) {
     .direction__items .direction__item {
-        align-items: flex-start;
-        gap: 8px;
+        padding: 1rem;
     }
-    .direction__items .heading {
-        padding-right: 8px;
-    }
-    .direction__items .heading h4 {
+    .direction__items .heading__row h4 {
         font-size: 1.15rem;
         line-height: 1.3;
     }
@@ -368,7 +376,6 @@ section.about ~ section {
         line-height: 1.4;
     }
     .direction__items .params-link {
-        flex-shrink: 0;
         width: 56px;
         height: 56px;
     }
@@ -655,7 +662,7 @@ section.about ~ section {
 <header class="header" id="mainHeader">
     <div class="container">
         <div class="row gx-0 align-items-center">
-            <div class="col-4" style="display: flex; align-items: center; gap: 15px; position: relative; flex-wrap: wrap;">
+            <div class="col-4 header__brand">
                 <a href="index.html" class="custom-logo-link" rel="home" aria-current="page">
                     <img width="73" height="73" src="images/ШЕВРОН.png" class="custom-logo" alt="125 окрема важка механізована бригада" decoding="async">
                 </a>
@@ -937,121 +944,147 @@ section.about ~ section {
                 <div class="direction__items">
                     <div class="direction__item" data-direction="Fly" data-aos="fade-left" data-aos-once="true" data-aos-delay="100">
                         <div class="heading">
-                            <h4 class="mb-1">Fly</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Fly</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Fly" aria-label="Details Fly">
+                                    <span class="direction-btn-icon direction-icon--litay" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of pilots and crews of unmanned aerial systems.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Fly" aria-label="Деталі про Fly">
-                            <span class="direction-btn-icon direction-icon--litay" aria-hidden="true"></span>
-                        </a>
                     </div>
 
                     <div class="direction__item" data-direction="Detect" data-aos="fade-left" data-aos-once="true" data-aos-delay="550">
                         <div class="heading">
-                            <h4 class="mb-1">Detect</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Detect</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Detect" aria-label="Details Detect">
+                                    <span class="direction-btn-icon direction-icon--vyvyliai" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of electronic reconnaissance specialists (ELINT).</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Detect" aria-label="Деталі про Detect">
-                            <span class="direction-btn-icon direction-icon--vyvyliai" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Analyze" data-aos="fade-left" data-aos-once="true" data-aos-delay="600">
                         <div class="heading">
-                            <h4 class="mb-1">Analyze</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Analyze</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Analyze" aria-label="Details Analyze">
+                                    <span class="direction-btn-icon direction-icon--analizui" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of staff analysts and intelligence data operators.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Analyze" aria-label="Деталі про Analyze">
-                            <span class="direction-btn-icon direction-icon--analizui" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Intercept" data-aos="fade-left" data-aos-once="true" data-aos-delay="650">
                         <div class="heading">
-                            <h4 class="mb-1">Intercept</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Intercept</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Intercept" aria-label="Details Intercept">
+                                    <span class="direction-btn-icon direction-icon--perexopliui" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of specialists countering aerial threats — air defense and electronic warfare.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Intercept" aria-label="Деталі про Intercept">
-                            <span class="direction-btn-icon direction-icon--perexopliui" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Shoot" data-aos="fade-left" data-aos-once="true" data-aos-delay="700">
                         <div class="heading">
-                            <h4 class="mb-1">Shoot</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Shoot</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Shoot" aria-label="Details Shoot">
+                                    <span class="direction-btn-icon direction-icon--striliai" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of shooters and fire crews.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Shoot" aria-label="Деталі про Shoot">
-                            <span class="direction-btn-icon direction-icon--striliai" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Strike" data-aos="fade-left" data-aos-once="true" data-aos-delay="750">
                         <div class="heading">
-                            <h4 class="mb-1">Strike</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Strike</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Strike" aria-label="Details Strike">
+                                    <span class="direction-btn-icon direction-icon--urazhai" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of artillery units and calculations.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Strike" aria-label="Деталі про Strike">
-                            <span class="direction-btn-icon direction-icon--urazhai" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Create" data-aos="fade-left" data-aos-once="true" data-aos-delay="800">
                         <div class="heading">
-                            <h4 class="mb-1">Create</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Create</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Create" aria-label="Details Create">
+                                    <span class="direction-btn-icon direction-icon--stvoriui" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of engineers, technicians, and masters.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Create" aria-label="Деталі про Create">
-                            <span class="direction-btn-icon direction-icon--stvoriui" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Repair" data-aos="fade-left" data-aos-once="true" data-aos-delay="850">
                         <div class="heading">
-                            <h4 class="mb-1">Repair</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Repair</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Repair" aria-label="Details Repair">
+                                    <span class="direction-btn-icon direction-icon--remontui" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of technicians and repair teams.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Repair" aria-label="Деталі про Repair">
-                            <span class="direction-btn-icon direction-icon--remontui" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Support" data-aos="fade-left" data-aos-once="true" data-aos-delay="900">
                         <div class="heading">
-                            <h4 class="mb-1">Support</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Support</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Support" aria-label="Details Support">
+                                    <span class="direction-btn-icon direction-icon--zaabezpechui" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of military logisticians and rear services.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Support" aria-label="Деталі про Support">
-                            <span class="direction-btn-icon direction-icon--zaabezpechui" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Train" data-aos="fade-left" data-aos-once="true" data-aos-delay="950">
                         <div class="heading">
-                            <h4 class="mb-1">Train</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Train</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Train" aria-label="Details Train">
+                                    <span class="direction-btn-icon direction-icon--navchai" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of instructors, sergeants, and small unit commanders.</p>
                         </div>
-                        <a class="params-link btn btn-terтиary w-sm-100 direction-modal-btn" href="#" data-direction="Train" aria-label="Деталі про Train">
-                            <span class="direction-btn-icon direction-icon--navchai" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Prepare" data-aos="fade-left" data-aos-once="true" data-aos-delay="1000">
                         <div class="heading">
-                            <h4 class="mb-1">Prepare</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Prepare</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Prepare" aria-label="Details Prepare">
+                                    <span class="direction-btn-icon direction-icon--gotui" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of military cooks and support units.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Prepare" aria-label="Деталі про Prepare">
-                            <span class="direction-btn-icon direction-icon--gotui" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Transport" data-aos="fade-left" data-aos-once="true" data-aos-delay="1050">
                         <div class="heading">
-                            <h4 class="mb-1">Transport</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Transport</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Transport" aria-label="Details Transport">
+                                    <span class="direction-btn-icon direction-icon--vezy" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of drivers and transport units.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Transport" aria-label="Деталі про Transport">
-                            <span class="direction-btn-icon direction-icon--vezy" aria-hidden="true"></span>
-                        </a>
                     </div>
                     <div class="direction__item" data-direction="Coordinate" data-aos="fade-left" data-aos-once="true" data-aos-delay="1100">
                         <div class="heading">
-                            <h4 class="mb-1">Coordinate</h4>
+                            <div class="heading__row">
+                                <h4 class="mb-1">Coordinate</h4>
+                                <a class="params-link btn btn-tertiary direction-modal-btn" href="#" data-direction="Coordinate" aria-label="Details Coordinate">
+                                    <span class="direction-btn-icon direction-icon--koordinui" aria-hidden="true"></span>
+                                </a>
+                            </div>
                             <p>Work of commanders, duty officers, and control centers.</p>
                         </div>
-                        <a class="params-link btn btn-tertiary w-sm-100 direction-modal-btn" href="#" data-direction="Coordinate" aria-label="Деталі про Coordinate">
-                            <span class="direction-btn-icon direction-icon--koordinui" aria-hidden="true"></span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1670,14 +1703,30 @@ function initDirectionModalButtons() {
     });
 }
 
+// Клік по картці напрямку (не по кнопці +) відкриває модальне вікно
+function initDirectionCardClicks() {
+    document.querySelectorAll('.direction__item').forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            if (e.target.closest('a.direction-modal-btn')) return;
+            var key = item.getAttribute('data-direction');
+            if (key && typeof window.openDirectionModal === 'function') {
+                e.preventDefault();
+                window.openDirectionModal(key);
+            }
+        });
+    });
+}
+
 // Додаємо обробники після завантаження DOM
 document.addEventListener('DOMContentLoaded', () => {
     initDirectionModalButtons();
+    initDirectionCardClicks();
 });
 
 // Також запускаємо, якщо DOM вже завантажений
 if (document.readyState !== 'loading') {
     initDirectionModalButtons();
+    initDirectionCardClicks();
 }
 
 // Контакт-галерея: пауза анімації лише при скролі/дотику саме галереї, відновлення через 5 с
