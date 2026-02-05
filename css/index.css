@@ -56,6 +56,21 @@ img.contact__media {
 .direction.section .text p {
     font-weight: normal;
 }
+/* Заголовок і текст у секції direction — без накладання */
+section.direction.section .col-lg-4 h2 {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 1.5rem;
+}
+section.direction.section .col-lg-4 .text {
+    margin-top: 0;
+}
+section.direction.section .col-lg-4 .text p {
+    margin-top: 0.75em;
+}
+section.direction.section .col-lg-4 .text p:first-of-type {
+    margin-top: 0;
+}
 
 .header .container,
 .header .row {
@@ -1098,7 +1113,7 @@ button.header__btn,
 /* Риска над галереєю контактів + напівпрозорі стілки зліва/справа */
 .contact__gallery-wrapper {
     position: relative;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
@@ -1351,30 +1366,39 @@ button.header__btn,
     .direction.section .col-lg-4 h2 {
         font-size: 24px;
         line-height: 1.3;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         height: auto;
         min-height: 0;
         text-align: left;
     }
     .direction.section .col-lg-4 .text {
-        margin-top: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
     }
     .direction.section .text p {
         font-size: 14px;
         font-weight: normal;
+        margin-bottom: 0.5em;
     }
 
+    .direction__items {
+        gap: 12px;
+        margin-top: 0.5rem;
+    }
     .direction__items .direction__item {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        padding: 1rem 1rem;
+        min-height: auto;
+        gap: 12px;
     }
     .direction__items .heading {
         padding-right: 8px;
         padding-left: 0;
         flex: 1 1 auto;
         min-width: 0;
-        text-align: justify;
+        text-align: left;
     }
     .direction__items .direction__item .params-link {
         flex-shrink: 0;
@@ -1468,7 +1492,14 @@ button.header__btn,
 
     .direction__item .heading h4,
     .direction__item .heading p {
-        line-height: 1.3;
+        line-height: 1.35;
+    }
+    .direction__item .heading p {
+        margin-bottom: 0;
+        overflow: visible;
+    }
+    .direction__item {
+        overflow: visible;
     }
 
     .profession-card .profession-label,

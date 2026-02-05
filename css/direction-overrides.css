@@ -9,9 +9,16 @@ main.home-main section.direction .direction__items .heading p {
 
 .direction.section .col-lg-4 h2 {
     font-size: 40px !important;
-    line-height: 41px;
+    line-height: 1.25;
     letter-spacing: 2.3px;
     color: rgba(246, 146, 30, 1);
-    height: 93px;
-    margin-bottom: 1rem;
+    min-height: 0;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+.direction.section .col-lg-4 .text {
+    margin-top: 0;
+}
+.direction.section .col-lg-4 .text p:first-of-type {
+    margin-top: 0;
 }
