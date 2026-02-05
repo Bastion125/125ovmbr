@@ -24,10 +24,19 @@ img.contact__media {
 
 /* Custom redesign styles */
 
+/* Breakpoints and safe area (mobile recommendations) */
+:root {
+    --bp-sm: 576px;
+    --bp-md: 768px;
+    --bp-lg: 992px;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 /* Compact Header Styles */
 .header,
 #mainHeader {
-    padding-top: 14px !important;
+    padding-top: max(14px, var(--safe-top)) !important;
     padding-bottom: 14px !important;
     height: 52px;
     position: fixed;
@@ -59,6 +68,12 @@ img.contact__media {
 
 body {
     margin-top: -80px;
+}
+
+/* Compensate fixed header: first section gets top padding (mobile recommendations) */
+.home-main .about.section,
+.home-main > section:first-of-type {
+    padding-top: max(80px, calc(80px + var(--safe-top)));
 }
 
 
@@ -102,7 +117,7 @@ body {
     display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .header-title-desktop {
         font-size: clamp(14px, 3.8vw, 18px);
         max-width: 70vw;
@@ -112,12 +127,38 @@ body {
     .header .custom-logo {
         width: 56px;
         height: 56px;
-        top: -24px;
+        position: relative;
+        left: auto;
+        top: auto;
     }
 
     .header .col-4 {
         flex-wrap: nowrap !important;
         gap: 10px !important;
+    }
+
+    /* Reset absolute positioning on mobile so flex layout works */
+    .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
+        position: relative;
+        left: auto;
+        top: auto;
+        height: auto;
+    }
+
+    .header .languages-block {
+        position: relative;
+        left: auto;
+        top: auto;
+    }
+
+    button.header__btn,
+    .header__btn {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin-left: auto;
+        min-height: 44px;
+        height: 44px;
     }
 }
 
@@ -434,7 +475,7 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .header-btn-new {
         padding: 6px 12px;
         font-size: 12px;
@@ -527,7 +568,8 @@ body {
 
 /* Section layout overrides (from preview) */
 section.direction.section {
-    height: 1266px;
+    min-height: 400px;
+    height: auto;
 }
 
 section.contact.section {
@@ -545,7 +587,8 @@ section.contact.section .container {
 }
 
 section.why-join.section {
-    height: 286px;
+    min-height: 200px;
+    height: auto;
     padding-top: 0;
     padding-bottom: 0;
     position: static;
@@ -802,8 +845,9 @@ p {
 }
 
 button.header__btn {
-    font-size: 11px;
+    font-size: 13px;
     height: 32px;
+    min-height: 44px;
     width: 175px;
     gap: 17px;
     padding-top: 12px;
@@ -821,11 +865,27 @@ button.header__btn {
 
 /* Зменшений шрифт для кнопок "Як приєднатись?" */
 button[data-bs-target="#contactFormModal"] {
-    font-size: 11px;
+    font-size: 13px;
 }
 
 #contactFormModal .modal-header .btn-close {
     top: 22px;
+}
+
+/* Modal fullscreen on small screens (mobile recommendations) */
+@media (max-width: 576px) {
+    #contactFormModal .modal-dialog {
+        margin: 0;
+        max-width: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+    #contactFormModal .modal-content {
+        min-height: 100vh;
+        min-height: 100dvh;
+        border-radius: 0;
+        padding-bottom: max(1rem, var(--safe-bottom));
+    }
 }
 
 /* Fullscreen "about" video + centered overlay (browser preview changes) */
@@ -1123,7 +1183,7 @@ button[data-bs-target="#contactFormModal"] {
     }
 
     .section-heading .lead {
-        font-size: 11px;
+        font-size: 13px;
         line-height: 1.5;
     }
 }
@@ -1179,7 +1239,7 @@ button[data-bs-target="#contactFormModal"] {
 }
 
 /* Additional mobile layout refinements */
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
     body {
         font-size: 16px;
         line-height: 1.6;
@@ -1271,9 +1331,15 @@ button[data-bs-target="#contactFormModal"] {
     .contact-form .col-lg-6 {
         width: 100%;
     }
+
+    /* Safe area for bottom section / footer (mobile recommendations) */
+    .why-join.section,
+    .contact.section {
+        padding-bottom: max(1.5rem, calc(1.5rem + var(--safe-bottom)));
+    }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 576px) {
     .section-heading .eyebrow {
         font-size: 20px;
         line-height: 1.15;
