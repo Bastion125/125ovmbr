@@ -365,9 +365,21 @@ section.about ~ section {
 .direction__item:hover .direction-btn-icon::after {
     background: #f6921e;
 }
+/* ПК: «+» праворуч у картці */
+@media (min-width: 769px) {
+    .direction__items .heading__row {
+        justify-content: space-between;
+    }
+    .direction__items .heading__row h4 {
+        flex: 1 1 auto;
+    }
+}
 @media (max-width: 768px) {
     .direction__items .direction__item {
         padding: 1rem;
+    }
+    .direction__items .heading__row {
+        align-items: center;
     }
     .direction__items .heading__row h4 {
         font-size: 1.15rem;

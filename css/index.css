@@ -146,21 +146,40 @@ body {
 }
 
 @media (max-width: 768px) {
+    .header,
+    #mainHeader {
+        height: auto;
+        min-height: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
     .header {
         overflow: visible;
     }
     .header .container {
         height: auto;
-        min-height: 52px;
+        min-height: 0;
         padding-top: 8px;
         padding-bottom: 8px;
     }
     .header .row.gx-0.align-items-center {
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+        gap: 10px;
         height: auto;
-        min-height: 52px;
+        min-height: 0;
+    }
+    .header .col-4.header__brand,
+    .header .col-4 {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+    .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
+        flex: 1 1 100%;
+        min-width: 0;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
     }
     /* Мобільний хедер: логотип + абревіатура ОВМБр (вище, ближче) */
     .header-title-desktop {
@@ -192,7 +211,7 @@ body {
     }
     .header .col-4.header__brand,
     .header .col-4 {
-        flex: 1 1 auto;
+        flex: 0 1 auto;
         min-width: 0;
         flex-wrap: nowrap;
         flex-direction: row !important;
@@ -205,13 +224,13 @@ body {
     .header .languages-block-header.d-none.d-md-block {
         display: block !important;
     }
-    /* Кнопка «Як приєднатись?», мова та меню справа; порядок: спочатку кнопка, потім мова */
+    /* Кнопка «Як приєднатись?», мова та меню справа; порядок: спочатку кнопка, потім мова; окремий ряд щоб не налазили */
     .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
         position: relative;
         left: auto !important;
         top: auto;
         height: auto;
-        flex: 0 0 auto;
+        flex: 1 1 100%;
         min-width: 0;
         display: flex !important;
         flex-direction: row;
@@ -291,6 +310,15 @@ body {
         position: absolute;
         top: 5px;
         left: 336px;
+    }
+}
+
+@media (min-width: 769px) {
+    .direction__items .heading__row {
+        justify-content: space-between;
+    }
+    .direction__items .heading__row h4 {
+        flex: 1 1 auto;
     }
 }
 
@@ -1426,6 +1454,10 @@ button.header__btn,
     }
     .direction__items .direction__item .params-link {
         flex-shrink: 0;
+    }
+
+    .direction__items .heading__row {
+        align-items: center;
     }
 
     .soldier-card,
