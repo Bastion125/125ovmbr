@@ -148,27 +148,27 @@ body {
 @media (max-width: 768px) {
     .header,
     #mainHeader {
-        height: auto;
-        min-height: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        height: 56px;
+        min-height: 56px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
     .header {
         overflow: visible;
     }
     .header .container {
-        height: auto;
-        min-height: 0;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        height: 56px;
+        min-height: 56px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
     .header .row.gx-0.align-items-center {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
-        gap: 10px;
-        height: auto;
-        min-height: 0;
+        gap: 6px;
+        height: 56px;
+        min-height: 56px;
     }
     .header .col-4.header__brand,
     .header .col-4 {
@@ -176,12 +176,12 @@ body {
         min-width: 0;
     }
     .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
-        flex: 1 1 100%;
+        flex: 0 0 auto;
         min-width: 0;
         justify-content: flex-end;
         flex-wrap: nowrap;
     }
-    /* Мобільний хедер: логотип + абревіатура ОВМБр (вище, ближче) */
+    /* Мобільний хедер: як на ПК, але зменшена назва й кнопки щоб влізли в один ряд */
     .header-title-desktop {
         display: none !important;
     }
@@ -190,19 +190,20 @@ body {
         position: relative;
         top: auto;
         left: auto;
-        font-size: 14px;
+        font-size: 12px;
         color: rgba(246, 146, 30, 1);
         font-family: "UAF Sans OnBoard Stencil", sans-serif;
         font-weight: 600;
-        line-height: 1.15;
+        line-height: 1.1;
         letter-spacing: 0.02em;
     }
     .header .custom-logo {
-        width: 40px;
-        height: 55px;
+        width: 32px;
+        height: 44px;
         position: relative !important;
         left: auto !important;
         top: auto !important;
+        object-fit: contain;
     }
     .header .custom-logo-link {
         display: flex;
@@ -256,15 +257,15 @@ body {
         left: auto;
         top: auto;
         margin-left: auto;
-        min-height: 40px;
-        height: 40px;
+        min-height: 34px;
+        height: 34px;
         width: auto;
         flex-shrink: 0;
         display: inline-flex !important;
         visibility: visible !important;
         opacity: 1 !important;
-        font-size: 11px !important;
-        padding: 6px 12px;
+        font-size: 10px !important;
+        padding: 4px 10px;
     }
 }
 
@@ -1458,6 +1459,21 @@ button.header__btn,
 
     .direction__items .heading__row {
         align-items: center;
+        flex-wrap: nowrap;
+    }
+    .direction__items .heading__row h4 {
+        margin: 0;
+        align-self: center;
+    }
+    .direction__items .heading__row .params-link {
+        align-self: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .direction__items .direction-btn-icon {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .soldier-card,

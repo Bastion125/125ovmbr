@@ -379,10 +379,19 @@ section.about ~ section {
     }
     .direction__items .heading__row {
         align-items: center;
+        flex-wrap: nowrap;
     }
     .direction__items .heading__row h4 {
         font-size: 1.15rem;
-        line-height: 1.3;
+        line-height: 1.2;
+        margin: 0;
+        align-self: center;
+    }
+    .direction__items .heading__row .params-link {
+        align-self: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
     .direction__items .heading p {
         font-size: 0.9rem;
@@ -391,12 +400,14 @@ section.about ~ section {
         max-width: 100%;
     }
     .direction__items .params-link {
-        width: 56px;
-        height: 56px;
+        width: 44px;
+        height: 44px;
     }
     .direction__items .direction-btn-icon {
         width: 36px;
         height: 28px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
     .direction-btn-icon::before {
         width: 16px;
