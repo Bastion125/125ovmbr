@@ -59,6 +59,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel="stylesheet" id="wpml-legacy-dropdown-0-css" href="css/style.min.css" type="text/css" media="all">
 <link rel="stylesheet" id="theme-style-css" href="css/index.css" type="text/css" media="all">
 <link rel="stylesheet" id="direction-overrides-css" href="css/direction-overrides.css" type="text/css" media="all">
+<link rel="stylesheet" id="mobile-responsive-css" href="css/mobile-responsive.css" type="text/css" media="all">
 <script type="text/javascript" id="wpml-cookie-js-extra">
 /* <![CDATA[ */
 var wpml_cookies = {"wp-wpml_current_language":{"value":"uk","expires":1,"path":"/"}};
@@ -69,6 +70,7 @@ var wpml_cookies = {"wp-wpml_current_language":{"value":"uk","expires":1,"path":
 <script type="text/javascript" src="js/language-cookie.js" id="wpml-cookie-js" defer="defer" data-wp-strategy="defer"></script>
 <script type="text/javascript" src="js/script.min.js" id="wpml-legacy-dropdown-0-js"></script>
 <script type="text/javascript" src="js/update-language-indicator.js"></script>
+<script type="text/javascript" src="js/mobile-menu.js" defer></script>
 <meta name="generator" content="WordPress 6.9">
 <link rel="shortlink" href="index.html">
 <meta name="generator" content="WPML ver:4.8.6 stt:1,45,2,54;">
@@ -723,8 +725,9 @@ section.about ~ section {
 	</ul>
 </div>
 </div><div class="languages-widget-block"></div>                </div>
-                <button id="toggleMenu" onclick="handleMenuButtonClick(event)">
-                    <img class="icon-close" src="images/close-icon-sm.svg" alt="Іконка Закрити">
+                <button id="toggleMenu" aria-label="Open menu" aria-expanded="false">
+                    <img class="icon-hamburger" src="images/burger.svg" alt="Menu" width="24" height="24">
+                    <img class="icon-close" src="images/close-icon-sm.svg" alt="Close menu" width="24" height="24">
                 </button>
             </div>
         </div>
@@ -772,6 +775,7 @@ section.about ~ section {
             </svg>
             
 
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 <div class="menu-wrapper" aria-hidden="true">
     <div class="container">
         <div class="languages-block ps-3 mb-6 d-md-none">

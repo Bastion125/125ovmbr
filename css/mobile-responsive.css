@@ -1,0 +1,270 @@
+/**
+ * Адаптивна верстка для екранів < 768px
+ * Мобільне гамбургер-меню, колонки, типографіка, відступи
+ */
+
+/* ========== Іконки гамбургера/закриття (всі екрани) ========== */
+#toggleMenu .icon-hamburger {
+  display: block !important;
+}
+#toggleMenu .icon-close {
+  display: none !important;
+}
+body.menu-open #toggleMenu .icon-hamburger {
+  display: none !important;
+}
+body.menu-open #toggleMenu .icon-close {
+  display: block !important;
+}
+
+/* ========== Десктоп: menu-wrapper як overlay при відкритті ========== */
+@media (min-width: 768px) {
+  .menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    overflow-y: auto;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .menu-wrapper[aria-hidden="true"] {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .menu-wrapper[aria-hidden="false"],
+  body.menu-open .menu-wrapper {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  /* Оверлей на десктопі при відкритому меню */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  body.menu-open .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+/* ========== Навігація: гамбургер-меню на мобільних ========== */
+@media (max-width: 767px) {
+  /* Кнопка гамбургера */
+  #toggleMenu {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* menu-wrapper: виїжджає збоку при відкритті */
+  .menu-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(320px, 85vw);
+    max-width: 320px;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 9999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.4);
+  }
+  .menu-wrapper[aria-hidden="false"] {
+    transform: translateX(0);
+    visibility: visible;
+  }
+  body.menu-open .menu-wrapper {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  /* Оверлей при відкритому меню (клік закриває) */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  body.menu-open .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Контент меню в slide-out */
+  .menu-wrapper .container {
+    padding: calc(56px + env(safe-area-inset-top)) 20px 24px;
+  }
+  .menu-wrapper .header-menu .menu {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .menu-wrapper .header-menu .menu .menu-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .menu-wrapper .header-menu .menu .menu-item a,
+  .menu-wrapper .header-menu .menu .menu-item > span {
+    display: block;
+    padding: 16px 0;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    min-height: 48px;
+    line-height: 1.4;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .menu-wrapper .header-menu .menu .menu-item a:hover,
+  .menu-wrapper .header-menu .menu .menu-item a:focus {
+    color: #F6921E;
+  }
+}
+
+/* ========== Десктоп: кнопка меню залишається (якщо меню overlay) ========== */
+/* На десктопі menu-wrapper може бути overlay при кліку - без змін */
+
+/* ========== Секції та колонки: одна колонка на мобільних ========== */
+@media (max-width: 767px) {
+  .direction.section .row,
+  .direction.section .col-lg-4 {
+    flex-direction: column;
+  }
+  .direction__items {
+    flex-direction: column;
+  }
+  .direction.section .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .contact .row,
+  .contact-form .row {
+    flex-direction: column;
+  }
+  .contact-form .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .is-layout-flex.wp-block-columns {
+    flex-direction: column;
+  }
+}
+
+/* ========== Типографіка: оптимізація заголовків ========== */
+@media (max-width: 767px) {
+  h1 {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  h2 {
+    font-size: clamp(22px, 5vw, 28px) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .section-heading h2 {
+    font-size: clamp(24px, 5vw, 30px) !important;
+  }
+  .about.about-fullscreen .video-center-title {
+    font-size: clamp(22px, 6vw, 32px) !important;
+  }
+}
+
+/* ========== Відступи: padding 15–20px ========== */
+@media (max-width: 767px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 100%;
+  }
+  section.section,
+  section.about,
+  section.choice,
+  section.contact,
+  section.direction,
+  section.professions,
+  section.why-join {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .section .container,
+  .about .container,
+  .contact .container,
+  .direction .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+/* ========== Інтерактивні елементи: зручні для пальця (мін. 44px) ========== */
+@media (max-width: 767px) {
+  .btn,
+  button:not(#toggleMenu),
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  .form-control {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+  .direction__item,
+  .profession-card,
+  .soldier-card,
+  .faq-item {
+    min-height: 48px;
+    padding: 14px 16px;
+  }
+  .params-link.btn {
+    min-width: 48px;
+    min-height: 48px;
+  }
+  .menu-wrapper .header-menu .menu .menu-item a,
+  .menu-wrapper .header-menu .menu .menu-item > span {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+}
