@@ -910,7 +910,36 @@ section.about ~ section {
             </div>
         </div>
     </div>
-</section>        
+</section>
+<section class="build-unit section">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <h2 class="build-unit__title">WE ARE BUILDING A NEW TYPE OF UNIT</h2>
+                <img src="images/ШЕВРОН.png" alt="" class="build-unit__emblem" width="120" height="120" loading="lazy">
+            </div>
+            <div class="col-lg-6 offset-lg-1">
+                <ul class="build-unit__points">
+                    <li>
+                        <div class="point-num">1</div>
+                        <div class="point-title">Attitude</div>
+                        <p class="point-desc">We changed the key thing — the attitude towards our fighters. Every initiative matters, and a role in the unit is defined by real skills and experience.</p>
+                    </li>
+                    <li>
+                        <div class="point-num">2</div>
+                        <div class="point-title">Development</div>
+                        <p class="point-desc">Equipment and weaponry are being renewed. The priority is building combat capabilities and rear support.</p>
+                    </li>
+                    <li>
+                        <div class="point-num">3</div>
+                        <div class="point-title">Your path</div>
+                        <p class="point-desc">You have the opportunity to choose your path in the military and become part of our team. Pick your role in the common cause.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="about section about-fullscreen">
     <div class="container">
         <div class="row row-gap-4">
@@ -977,17 +1006,62 @@ section.about ~ section {
             <h2 class="section-title">DIRECTIONS</h2>
             <p class="section-lead">We will select a specific position based on your civilian skills. Choose the area where you will be most effective.</p>
         </div>
-        <div class="row row-gap-3">
-            <div class="col-lg-4">
-                <h2>WE ARE BUILDING A NEW TYPE OF UNIT</h2>
-                <div class="text">
-                    <p>The unit is currently undergoing reform. We changed the key thing — the attitude towards our fighters.</p>
-                    <p>Every initiative matters, and a role in the unit is defined by tangible skills, experience, and talent.</p>
-                    <p>Equipment and weaponry are being renewed. The priority is building combat capabilities and rear support.</p>
-                    <p>Right now you have the opportunity to choose your path in the military before someone else chooses it for you and become part of our team. Pick your role in the common cause.</p>
+        <div class="directions-grid d-none d-lg-grid">
+            <article class="direction-card">
+                <img class="direction-card__img" src="images/logo-125.svg" alt="" loading="lazy">
+                <div class="direction-card__body">
+                    <div class="direction-card__tags"><span class="direction-card__tag">UAV pilots</span><span class="direction-card__tag">EW/ES operators</span></div>
+                    <h3 class="direction-card__title">Drone tech and reconnaissance</h3>
+                    <p class="direction-card__text">Unmanned systems, electronic warfare and reconnaissance.</p>
+                    <a class="direction-card__link direction-modal-btn" href="#" data-direction="Fly">Details</a>
                 </div>
-            </div>
-            <div class="col-lg-8">
+            </article>
+            <article class="direction-card">
+                <img class="direction-card__img" src="images/logo-125.svg" alt="" loading="lazy">
+                <div class="direction-card__body">
+                    <div class="direction-card__tags"><span class="direction-card__tag">Gunners</span><span class="direction-card__tag">Artillery</span></div>
+                    <h3 class="direction-card__title">Combat units</h3>
+                    <p class="direction-card__text">Fire teams, artillery, air defence.</p>
+                    <a class="direction-card__link direction-modal-btn" href="#" data-direction="Shoot">Details</a>
+                </div>
+            </article>
+            <article class="direction-card">
+                <img class="direction-card__img" src="images/logo-125.svg" alt="" loading="lazy">
+                <div class="direction-card__body">
+                    <div class="direction-card__tags"><span class="direction-card__tag">Engineers</span><span class="direction-card__tag">Repair</span></div>
+                    <h3 class="direction-card__title">Repair and engineering</h3>
+                    <p class="direction-card__text">Engineers, technicians, repair teams.</p>
+                    <a class="direction-card__link direction-modal-btn" href="#" data-direction="Repair">Details</a>
+                </div>
+            </article>
+            <article class="direction-card">
+                <img class="direction-card__img" src="images/logo-125.svg" alt="" loading="lazy">
+                <div class="direction-card__body">
+                    <div class="direction-card__tags"><span class="direction-card__tag">Logistics</span><span class="direction-card__tag">Transport</span></div>
+                    <h3 class="direction-card__title">Logistics and transport</h3>
+                    <p class="direction-card__text">Supply, drivers, rear support.</p>
+                    <a class="direction-card__link direction-modal-btn" href="#" data-direction="Drive">Details</a>
+                </div>
+            </article>
+            <article class="direction-card">
+                <img class="direction-card__img" src="images/logo-125.svg" alt="" loading="lazy">
+                <div class="direction-card__body">
+                    <div class="direction-card__tags"><span class="direction-card__tag">Staff</span><span class="direction-card__tag">Command</span></div>
+                    <h3 class="direction-card__title">Command and staff</h3>
+                    <p class="direction-card__text">Operations planning, documentation, coordination.</p>
+                    <a class="direction-card__link direction-modal-btn" href="#" data-direction="Coordinate">Details</a>
+                </div>
+            </article>
+            <article class="direction-card direction-card--cta">
+                <div class="direction-card__body">
+                    <h3 class="direction-card__title">Not sure which direction to choose?</h3>
+                    <p class="direction-card__text">We will find an option that fits your skills. Get in touch.</p>
+                    <a class="btn-consult" href="#" data-bs-toggle="modal" data-bs-target="#contactFormModal">Need consultation</a>
+                </div>
+            </article>
+        </div>
+        <div class="row row-gap-3 direction__legacy d-lg-none">
+            <div class="col-12">
                 <div class="direction__items">
                     <div class="direction__item" data-direction="Fly" data-aos="fade-left" data-aos-once="true" data-aos-delay="100">
                         <div class="heading">
@@ -1159,7 +1233,7 @@ section.about ~ section {
         </div>
     </div>
 </section>
-<section class="contact section overflow-x-hidden">
+<section class="contact section overflow-x-hidden template-commanders-grid">
     <div class="container">
         <h2 class="contact__gallery-heading">COMMANDERS</h2>
         <p class="commanders-lead">Openness starts with leaders. These are the people with whom you will build the future shoulder to shoulder.</p>
@@ -1167,43 +1241,43 @@ section.about ~ section {
         <div class="contact__gallery-track" id="contactGalleryTrack">
             <figure class="contact-card">
                 <img src="images/commander-01.png" srcset="images/commander-01.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Tsyfra — Commander of Patronage Service" loading="eager">
-                <figcaption class="visually-hidden">Tsyfra — Commander of Patronage Service</figcaption>
+                <figcaption>TSYFRA <span class="role">Commander of Patronage Service</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-02.png" srcset="images/commander-02.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Sokil — Chief Sergeant of the Brigade, Head of Department" loading="lazy">
-                <figcaption class="visually-hidden">Sokil — Chief Sergeant of the Brigade</figcaption>
+                <figcaption>SOKIL <span class="role">Chief Sergeant of the Brigade</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-03.png" srcset="images/commander-03.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Darvin — Commander of 2nd Mechanized Battalion" loading="lazy">
-                <figcaption class="visually-hidden">Darvin — Commander of 2nd Mechanized Battalion</figcaption>
+                <figcaption>DARVIN <span class="role">Commander of 2nd Mechanized Battalion</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-04.png" srcset="images/commander-04.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Protsent — Deputy Brigade Commander" loading="lazy">
-                <figcaption class="visually-hidden">Protsent — Deputy Brigade Commander</figcaption>
+                <figcaption>PROTSENT <span class="role">Deputy Brigade Commander</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-05.png" srcset="images/commander-05.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="IKAP — Head of Combat Training Department" loading="lazy">
-                <figcaption class="visually-hidden">IKAP — Head of Combat Training Department</figcaption>
+                <figcaption>IKAP <span class="role">Head of Combat Training Department</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-06.png" srcset="images/commander-06.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Foka — Brigade Commander" loading="lazy">
-                <figcaption class="visually-hidden">Foka — Brigade Commander</figcaption>
+                <figcaption>FOKA <span class="role">Brigade Commander</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-08.png" srcset="images/commander-08.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Elvis — Chief of Medical Service" loading="lazy">
-                <figcaption class="visually-hidden">Elvis — Chief of Medical Service</figcaption>
+                <figcaption>ELVIS <span class="role">Chief of Medical Service</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-09.png" srcset="images/commander-09.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Eyvar — Head of UAV Brigade" loading="lazy">
-                <figcaption class="visually-hidden">Eyvar — Head of UAV Brigade</figcaption>
+                <figcaption>EYVAR <span class="role">Head of UAV Brigade</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-10.png" srcset="images/commander-10.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Barber — Head of EW Group of the Brigade" loading="lazy">
-                <figcaption class="visually-hidden">Barber — Head of EW Group of the Brigade</figcaption>
+                <figcaption>BARBER <span class="role">Head of EW Group of the Brigade</span></figcaption>
             </figure>
             <figure class="contact-card">
                 <img src="images/commander-11.png" srcset="images/commander-11.png 1x" sizes="(max-width: 768px) 85vw, 320px" alt="Multyk — Battalion Commander of Unmanned Systems" loading="lazy">
-                <figcaption class="visually-hidden">Multyk — Battalion Commander of Unmanned Systems</figcaption>
+                <figcaption>MULTYK <span class="role">Battalion Commander of Unmanned Systems</span></figcaption>
             </figure>
             <!-- Duplicate for seamless animation -->
             <figure class="contact-card" aria-hidden="true">
@@ -1276,6 +1350,18 @@ section.about ~ section {
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="modal-profiles">
+                    <div class="modal-profile-card">
+                        <img src="images/commander-10.png" alt="" width="80" height="80" loading="lazy">
+                        <div class="name">BARBER</div>
+                        <div class="role">Head of EW Group of the Brigade</div>
+                    </div>
+                    <div class="modal-profile-card">
+                        <img src="images/commander-11.png" alt="" width="80" height="80" loading="lazy">
+                        <div class="name">MULTYK</div>
+                        <div class="role">Battalion Commander of Unmanned Systems</div>
+                    </div>
+                </div>
                 <p class="fw-300 mb-3">
                     To become part of the unit, simply take the first step — contact us.
                 </p>
@@ -1316,9 +1402,9 @@ section.about ~ section {
 
             <!-- Social network -->
             <div class="mb-2 mb-lg-3">
-                <label for="social-2" class="form-label">Social Network*</label>
+                <label for="social-2" class="form-label">Messenger*</label>
                 <select class="form-select" id="social-2" name="social" required="">
-                    <option value="" selected="" disabled="">Choose a social network</option>
+                    <option value="" selected="" disabled="">Choose messenger</option>
                     <option value="Telegram">Telegram</option>
                     <option value="WhatsApp">WhatsApp</option>
                     <option value="Signal">Signal</option>
