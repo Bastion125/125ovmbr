@@ -90,6 +90,20 @@
   color: #000;
 }
 
+/* Хедер — кнопка з помаранчевою обводкою як на макеті */
+.header__btn.btn--orange-outline {
+  border: 2px solid var(--template-orange);
+  color: var(--template-text);
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.header__btn.btn--orange-outline:hover {
+  background: var(--template-orange);
+  color: #000;
+  border-color: var(--template-orange);
+}
+
 /* Секція "БУДУЄМО ПІДРОЗДІЛ" — заголовок помаранчевий */
 .direction.section .col-lg-4 h2 {
   color: var(--template-orange) !important;
@@ -514,33 +528,211 @@
   }
 }
 
-/* Модаль форми — два профільні картки зверху */
-.modal-profiles {
-  display: flex;
+/* Модаль форми — дві великі картки командирів (як на фото) */
+.modal-commander-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  flex-wrap: wrap;
 }
-.modal-profile-card {
-  flex: 1;
-  min-width: 140px;
-  max-width: 200px;
-  text-align: center;
+.modal-commander-card {
+  min-height: 100px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  overflow: hidden;
 }
-.modal-profile-card img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 0.5rem;
+.modal-commander-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
 }
-.modal-profile-card .name {
+.modal-commander-card__name,
+.modal-commander-card__role {
+  position: relative;
+  z-index: 1;
+  color: #fff;
   font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--template-text);
   text-transform: uppercase;
 }
-.modal-profile-card .role {
-  font-size: 0.8rem;
-  color: var(--template-text-muted);
+.modal-commander-card__name {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+.modal-commander-card__role {
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
+@media (max-width: 575px) {
+  .modal-commander-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Модаль — заголовок з емблемою, перший рядок білий, другий помаранчевий */
+#contactFormModal .modal-header--with-emblem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+#contactFormModal .modal-header__emblem {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+#contactFormModal .modal-title-main .modal-title-line1 {
+  display: block;
+  color: var(--template-text) !important;
+}
+#contactFormModal .modal-title-main .modal-title-line2 {
+  display: block;
+  color: var(--template-orange) !important;
+}
+#contactFormModal .modal-social-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+#contactFormModal .modal-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--template-text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: color 0.2s, border-color 0.2s;
+}
+#contactFormModal .modal-social-link:hover {
+  color: var(--template-orange);
+  border-color: var(--template-orange);
+}
+#contactFormModal .btn-submit-template {
+  background: var(--template-orange) !important;
+  color: #000 !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  min-height: 48px;
+  border: none;
+}
+#contactFormModal .form-check-input:checked {
+  background-color: var(--template-orange);
+  border-color: var(--template-orange);
+}
+
+/* БУДУЄМО — емблема більша, заголовки пунктів uppercase */
+.build-unit .build-unit__emblem {
+  max-width: 180px;
+}
+.build-unit .build-unit__points .point-title {
+  text-transform: uppercase;
+  color: var(--template-orange);
+}
+
+/* НАПРЯМКИ — L-кут зліва вгорі і справа внизу */
+.direction-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid var(--template-orange);
+  border-bottom: 2px solid var(--template-orange);
+  border-radius: 0 0 2px 0;
+}
+.direction-card--cta::before,
+.direction-card--cta::after {
+  border-color: rgba(0, 0, 0, 0.3);
+}
+.direction-card .direction-card__title {
+  text-transform: uppercase;
+}
+.direction-card--cta .btn-consult--white {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #000;
+}
+.direction-card--cta .btn-consult--white:hover {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* Три колонки — L-кут справа внизу, біла кнопка в CTA */
+.directions-col::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid var(--template-orange);
+  border-bottom: 2px solid var(--template-orange);
+  border-radius: 0 0 2px 0;
+}
+.directions-col.directions-col--cta::before,
+.directions-col.directions-col--cta::after {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.directions-col.directions-col--cta .btn-consult--white {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #000;
+}
+.directions-col.directions-col--cta .btn-consult--white:hover {
+  background: #000 !important;
+  color: var(--template-orange) !important;
+}
+
+/* CTA-блок why-join — текст зліва, лого справа, темно-зелений фон */
+.why-join.section {
+  background: linear-gradient(135deg, #1a2319 0%, #0f1410 50%, #151a14 100%);
+}
+.why-join__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.why-join__heading {
+  text-align: left;
+  flex: 1 1 300px;
+}
+.why-join__inner .why-join__logo {
+  flex-shrink: 0;
+}
+.template-commanders-grid .contact-card {
+  position: relative;
+}
+.template-commanders-grid .contact-card img {
+  position: relative;
+  z-index: 1;
+}
+.template-commanders-grid .contact-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120' opacity='0.08'%3E%3Cpath fill='%23fff' d='M50 10 L90 30 L90 90 L50 110 L10 90 L10 30 Z'/%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
 }
