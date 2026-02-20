@@ -42,8 +42,8 @@ img.contact__media {
 /* Compact Header Styles */
 .header,
 #mainHeader {
-    padding-top: max(14px, var(--safe-top)) !important;
-    padding-bottom: 14px !important;
+    padding-top: max(6px, var(--safe-top)) !important;
+    padding-bottom: 6px !important;
     min-height: 56px;
     height: 56px;
     position: fixed;
@@ -53,6 +53,9 @@ img.contact__media {
     border-bottom: none !important;
     z-index: 10;
     transition: transform 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .header.header--hidden {
@@ -100,13 +103,16 @@ body {
 
 
 .header .container {
-    height: 75px;
-    min-height: 75px;
+    height: 100%;
+    min-height: 0;
+    max-height: 56px;
     padding-left: 20px;
     padding-right: 20px;
     position: relative;
     top: 0;
     left: 0;
+    display: flex;
+    align-items: center;
 }
 
 .header .col-4 {
@@ -167,11 +173,12 @@ body {
         padding-bottom: 8px;
     }
     .header {
-        overflow: visible;
+        overflow: hidden;
     }
     .header .container {
-        height: 56px;
-        min-height: 56px;
+        height: 100%;
+        min-height: 0;
+        max-height: 56px;
         padding-top: 0;
         padding-bottom: 0;
     }
@@ -180,8 +187,8 @@ body {
         justify-content: space-between;
         align-items: center;
         gap: 6px;
-        height: 56px;
-        min-height: 56px;
+        height: 100%;
+        min-height: 0;
     }
     .header .col-12.header__brand,
     .header .header__brand {
@@ -278,13 +285,16 @@ body {
 
 @media (min-width: 769px) {
     .header .row.gx-0.align-items-center {
-        height: 68px;
-        min-height: 68px;
+        height: 100%;
+        min-height: 0;
+        max-height: 44px;
         justify-content: space-between;
+        align-items: center;
     }
     .header .container {
-        height: 73px;
-        min-height: 73px;
+        height: 100%;
+        min-height: 0;
+        max-height: 56px;
     }
 }
 
@@ -1149,7 +1159,7 @@ button.header__btn,
 
 /* Заголовок над галереєю командирів — колір як у direction h2 */
 .contact__gallery-heading {
-    font-family: "UAF Sans OnBoard Stencil", sans-serif;
+    font-family: var(--template-font-display, 'Bebas Neue', sans-serif);
     font-size: clamp(28px, 3.5vw, 42px);
     text-align: center;
     margin: 0 0 1.25rem;

@@ -165,9 +165,19 @@
 }
 
 /* Хедер — за макетом: лого + назва зліва (2 рядки, помаранчево); справа кнопка + вибір мови (dropdown) */
-.header {
-  background: rgba(0, 0, 0, 0.5);
+.header,
+#mainHeader {
+  background: rgba(0, 0, 0, 0.28);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+#mainHeader .container {
+  height: 100%;
+  min-height: 0;
+}
+#mainHeader .row.gx-0.align-items-center {
+  height: 100%;
+  min-height: 0;
+  align-items: center;
 }
 .header__brand--png {
   flex-wrap: nowrap;
@@ -177,6 +187,23 @@
   margin: 0;
   align-items: center;
   min-width: 0;
+  flex-shrink: 0;
+}
+#mainHeader .header__brand {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+#mainHeader .header__brand .header__brand-inner {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+#mainHeader .header__right {
+  flex: 0 0 auto;
+  flex-shrink: 0;
 }
 .header__logo-text {
   font-family: var(--template-font-display);
