@@ -207,6 +207,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-left: auto;
 }
 /* Скидання absolute з index.css — лого і назва в потоці, назва праворуч від ємблеми */
 #mainHeader .header__emblem,
@@ -220,6 +221,8 @@
   display: flex !important;
   align-items: center;
   gap: 10px;
+  align-self: flex-start !important;
+  margin-top: -4px !important;
 }
 .header__logo-text {
   font-family: var(--template-font-display);
@@ -1381,10 +1384,13 @@
   flex-direction: row !important;
   align-items: center !important;
   gap: 10px !important;
+  align-self: flex-start !important;
+  margin-top: -4px !important;
 }
 #mainHeader .header__right {
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
   gap: 10px !important;
+  margin-left: auto !important;
 }
