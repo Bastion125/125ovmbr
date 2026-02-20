@@ -1,0 +1,236 @@
+/**
+ * Стилі за шаблоном Figma: 125 ОВМБр
+ * Темна тема, помаранчевий акцент, типографіка та секції
+ */
+
+:root {
+  --template-bg: #0a0a0a;
+  --template-bg-card: #1a1a1a;
+  --template-orange: #F6921E;
+  --template-orange-hover: #ffa033;
+  --template-text: #ffffff;
+  --template-text-muted: rgba(255, 255, 255, 0.85);
+}
+
+/* Hero overlay — заголовок та CTA як у макеті */
+.hero {
+  position: relative;
+}
+.hero__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero__overlay * {
+  pointer-events: auto;
+}
+.hero__title {
+  font-family: "UAF Sans OnBoard Stencil", sans-serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  color: var(--template-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  max-width: 14ch;
+}
+.hero__subtitle {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--template-text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 32rem;
+}
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  min-height: 48px;
+  background: var(--template-orange);
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.hero__cta:hover {
+  background: var(--template-orange-hover);
+  color: #000;
+}
+
+/* Секція "БУДУЄМО ПІДРОЗДІЛ" — заголовок помаранчевий */
+.direction.section .col-lg-4 h2 {
+  color: var(--template-orange) !important;
+  font-family: "UAF Sans OnBoard Stencil", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Секція НАПРЯМКИ — заголовок по центру */
+.direction.section .section-title-block {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.direction.section .section-title-block .section-title {
+  font-family: "UAF Sans OnBoard Stencil", sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--template-orange);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.direction.section .section-title-block .section-lead {
+  color: var(--template-text-muted);
+  font-size: 1rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* КОМАНДИРИ — підзаголовок під заголовком */
+.contact.section .commanders-lead {
+  text-align: center;
+  color: var(--template-text-muted);
+  font-size: 1rem;
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+}
+.contact__gallery-heading {
+  color: var(--template-orange) !important;
+  font-family: "UAF Sans OnBoard Stencil", sans-serif;
+  text-transform: uppercase;
+}
+
+/* CTA-блок "ТУТ ТИ ТВОРИШ МАЙБУТНЄ" */
+.why-join.section {
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.98) 0%, rgba(15, 15, 15, 0.98) 100%);
+}
+.why-join .section-heading h2 {
+  color: var(--template-orange) !important;
+  font-family: "UAF Sans OnBoard Stencil", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(24px, 4vw, 36px);
+}
+.why-join .section-heading h2 .line2 {
+  display: block;
+  font-size: 0.9em;
+  margin-top: 0.25rem;
+}
+
+/* Три колонки перед командирами (Логістика, Управління, Напрямок) */
+.directions-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 3rem 0;
+}
+.directions-col {
+  background: var(--template-bg-card);
+  padding: 2rem;
+  border-radius: 8px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.directions-col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-left: 2px solid var(--template-orange);
+  border-top: 2px solid var(--template-orange);
+  border-radius: 2px 0 0 0;
+}
+.directions-col h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--template-text);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.directions-col p {
+  color: var(--template-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+.directions-col .link-details {
+  color: var(--template-text);
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.directions-col .link-details:hover {
+  color: var(--template-orange);
+}
+.directions-col .link-details::after {
+  content: '>';
+  color: var(--template-orange);
+}
+.directions-col.directions-col--cta {
+  background: var(--template-orange);
+}
+.directions-col.directions-col--cta h3,
+.directions-col.directions-col--cta p {
+  color: #000;
+}
+.directions-col.directions-col--cta .btn-consult {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid #000;
+  background: transparent;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.directions-col.directions-col--cta .btn-consult:hover {
+  background: #000;
+  color: var(--template-orange);
+}
+
+@media (max-width: 767px) {
+  .directions-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Модаль форми — заголовок як у макету */
+#contactFormModal .modal-title-block .modal-title-main {
+  font-family: "UAF Sans OnBoard Stencil", sans-serif;
+  font-size: clamp(22px, 3.5vw, 28px);
+  color: var(--template-orange);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+#contactFormModal .modal-title-block .modal-title-sub {
+  font-size: 1rem;
+  color: var(--template-text-muted);
+}
+#contactFormModal .btn-primary,
+#contactFormModal .contact-form .btn[type="submit"] {
+  background: var(--template-orange) !important;
+  color: #000 !important;
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  min-height: 48px;
+}
