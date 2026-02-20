@@ -167,7 +167,7 @@
 /* Хедер — за макетом: лого + назва зліва (2 рядки, помаранчево); справа кнопка + вибір мови (dropdown) */
 .header,
 #mainHeader {
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(0, 0, 0, 0.22);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 #mainHeader .container {
@@ -204,6 +204,22 @@
 #mainHeader .header__right {
   flex: 0 0 auto;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Скидання absolute з index.css — лого і назва в потоці, назва праворуч від ємблеми */
+#mainHeader .header__emblem,
+#mainHeader .header__emblem .custom-logo,
+#mainHeader .header__brand-inner .header__logo-text {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+}
+#mainHeader .header__brand-inner {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
 }
 .header__logo-text {
   font-family: var(--template-font-display);
@@ -1333,4 +1349,42 @@
   pointer-events: none;
   z-index: 0;
   z-index: 0;
+}
+
+/* === Хедер: жорстке перевизначення (має перебити index.css) === */
+#mainHeader .header__emblem,
+#mainHeader .header__emblem img.custom-logo,
+#mainHeader .header__logo-text,
+#mainHeader .header__brand-inner {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+}
+#mainHeader .header__btn,
+#mainHeader a.header__btn--join,
+#mainHeader .header__right .header__lang-dropdown,
+#mainHeader .header__lang-trigger {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+}
+#mainHeader .header__brand {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+#mainHeader .header__brand-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+#mainHeader .header__right {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
 }

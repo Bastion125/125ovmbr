@@ -273,13 +273,13 @@ body {
 
 @media (min-width: 769px) {
     .header .custom-logo {
-        width: 40px;
-        height: 55px;
+        width: 48px;
+        height: auto;
         padding-top: 0;
         padding-bottom: 0;
-        position: absolute;
-        left: 109px;
-        top: -49px;
+        position: relative;
+        left: auto;
+        top: auto;
     }
 }
 
@@ -300,22 +300,17 @@ body {
 
 @media (min-width: 769px) {
     .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
-        position: absolute;
-        top: -4px;
-        height: 55px;
-        margin-left: auto;
-        justify-content: flex-end;
-        width: auto;
-        flex: 0 0 auto;
-        left: 749px;
+        position: relative;
+        top: auto;
+        left: auto;
     }
 }
 
 @media (min-width: 769px) {
     .header .languages-block {
-        position: absolute;
-        top: 5px;
-        left: 336px;
+        position: relative;
+        top: auto;
+        left: auto;
     }
 }
 
@@ -994,9 +989,9 @@ button.header__btn,
 
 button.header__btn,
 .header__btn {
-    position: absolute;
-    left: 151px;
-    top: 3px;
+    position: relative;
+    left: auto;
+    top: auto;
 }
 
 #contactFormModal .modal-header .btn-close {
