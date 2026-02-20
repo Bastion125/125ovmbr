@@ -146,8 +146,15 @@ body {
 .header .header__brand {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
     position: relative;
+    flex-wrap: nowrap;
+}
+.header .header__brand-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     flex-wrap: nowrap;
 }
 
@@ -176,16 +183,10 @@ body {
         height: 56px;
         min-height: 56px;
     }
-    .header .col-4.header__brand,
-    .header .col-4 {
-        flex: 0 1 auto;
+    .header .col-12.header__brand,
+    .header .header__brand {
+        flex: 1 1 auto;
         min-width: 0;
-    }
-    .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
-        flex: 0 0 auto;
-        min-width: 0;
-        justify-content: flex-end;
-        flex-wrap: nowrap;
     }
     /* Мобільний хедер: як на ПК, але зменшена назва й кнопки щоб влізли в один ряд */
     .header-title-desktop {
@@ -216,9 +217,9 @@ body {
         align-items: center;
         flex-shrink: 0;
     }
-    .header .col-4.header__brand,
-    .header .col-4 {
-        flex: 0 1 auto;
+    .header .col-12.header__brand,
+    .header .header__brand {
+        flex: 1 1 auto;
         min-width: 0;
         flex-wrap: nowrap;
         flex-direction: row !important;
@@ -227,28 +228,13 @@ body {
         position: relative;
         left: auto !important;
     }
-    /* На мобільній: спочатку кнопка «Як приєднатись?», потім вибір мови */
-    .header .languages-block-header.d-none.d-md-block {
-        display: block !important;
-    }
-    /* Кнопка «Як приєднатись?», мова та меню справа; порядок: спочатку кнопка, потім мова; окремий ряд щоб не налазили */
-    .header .col-8.d-flex.justify-content-end.align-items-center.gap-3.gap-lg-5 {
-        position: relative;
-        left: auto !important;
-        top: auto;
-        height: auto;
-        flex: 1 1 100%;
+    .header .header__brand-inner {
+        flex: 0 1 auto;
         min-width: 0;
-        display: flex !important;
-        flex-direction: row;
-        justify-content: flex-end;
-        gap: 0.5rem;
     }
-    .header .col-8 .header__btn {
-        order: 1;
-    }
-    .header .col-8 .languages-block-header {
-        order: 2;
+    /* Мобільне меню (бургер) справа в хедері */
+    .header #toggleMenu.d-lg-none {
+        flex-shrink: 0;
     }
     .header .languages-block,
     .header .languages-block-header {

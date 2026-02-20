@@ -877,16 +877,14 @@
 .why-join__bg {
   position: absolute;
   inset: 0;
-  background-image: url('../images/260110.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #0f0f0f;
+  background-image: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(246, 146, 30, 0.06), transparent 50%);
 }
 .why-join__bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: transparent;
 }
 .why-join.section .container {
   position: relative;
