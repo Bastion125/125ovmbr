@@ -120,9 +120,12 @@
 .direction.section .section-title-block .section-title {
   font-family: "UAF Sans OnBoard Stencil", sans-serif;
   font-size: clamp(28px, 4vw, 42px);
-  color: var(--template-orange);
+  color: var(--template-text);
   text-transform: uppercase;
   margin-bottom: 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--template-orange);
+  display: inline-block;
 }
 .direction.section .section-title-block .section-lead {
   color: var(--template-text-muted);
@@ -140,10 +143,21 @@
   max-width: 40rem;
   margin: 0 auto 2rem;
 }
-.contact__gallery-heading {
-  color: var(--template-orange) !important;
+.contact.section .contact__gallery-heading {
+  color: var(--template-text) !important;
   font-family: "UAF Sans OnBoard Stencil", sans-serif;
   text-transform: uppercase;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--template-orange);
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.contact.section .container > h2.contact__gallery-heading {
+  text-align: center;
+  width: 100%;
+}
+.contact.section .commanders-lead {
+  text-align: center;
 }
 
 /* CTA-блок "ТУТ ТИ ТВОРИШ МАЙБУТНЄ" */
@@ -481,7 +495,7 @@
 }
 .template-commanders-grid .contact__gallery-track {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   transform: none !important;
   width: 100%;
@@ -522,9 +536,14 @@
 .template-commanders-grid .contact-card[aria-hidden="true"] {
   display: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .template-commanders-grid .contact__gallery-track {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 575px) {
+  .template-commanders-grid .contact__gallery-track {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -643,20 +662,8 @@
   color: var(--template-orange);
 }
 
-/* НАПРЯМКИ — L-кут зліва вгорі і справа внизу */
-.direction-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 24px;
-  height: 24px;
-  border-right: 2px solid var(--template-orange);
-  border-bottom: 2px solid var(--template-orange);
-  border-radius: 0 0 2px 0;
-}
-.direction-card--cta::before,
-.direction-card--cta::after {
+/* НАПРЯМКИ — L-кут тільки зліва вгорі (як у шаблоні) */
+.direction-card--cta::before {
   border-color: rgba(0, 0, 0, 0.3);
 }
 .direction-card .direction-card__title {
@@ -664,12 +671,12 @@
 }
 .direction-card--cta .btn-consult--white {
   background: #fff !important;
-  color: #000 !important;
-  border-color: #000;
+  color: var(--template-orange) !important;
+  border: 2px solid #fff;
 }
 .direction-card--cta .btn-consult--white:hover {
-  background: #000 !important;
-  color: #fff !important;
+  background: rgba(255,255,255,0.9) !important;
+  color: var(--template-orange) !important;
 }
 
 /* Три колонки — L-кут справа внизу, біла кнопка в CTA */
@@ -690,11 +697,11 @@
 }
 .directions-col.directions-col--cta .btn-consult--white {
   background: #fff !important;
-  color: #000 !important;
-  border: 2px solid #000;
+  color: var(--template-orange) !important;
+  border: 2px solid #fff;
 }
 .directions-col.directions-col--cta .btn-consult--white:hover {
-  background: #000 !important;
+  background: rgba(255,255,255,0.9) !important;
   color: var(--template-orange) !important;
 }
 
