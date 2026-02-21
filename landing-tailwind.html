@@ -33,33 +33,42 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .font-display { font-family: 'Bebas Neue', 'Oswald', sans-serif; }
+        /* Buttons: sharp edges only */
+        .btn-sharp { border-radius: 0; }
+        /* Form: minimal — bottom line or thin border */
         .input-ghost {
-            background: #111111;
-            border: 1px solid rgba(255,255,255,0.2);
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
             color: #fff;
+            border-radius: 0;
         }
         .input-ghost::placeholder { color: rgba(255,255,255,0.5); }
         .input-ghost:focus {
             outline: none;
-            border-color: #F59E0B;
-            box-shadow: 0 0 0 1px #F59E0B;
+            border-bottom-color: #F59E0B;
+            box-shadow: none;
         }
-        /* Commander: vertical name, large Bebas, overlapping bottom of photo */
-        .commander-name-vertical {
+        /* Commander: LARGE CAPS, very bold Bebas, overlapping bottom of photo (horizontal) */
+        .commander-name {
             font-family: 'Bebas Neue', sans-serif;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            text-orientation: mixed;
             position: absolute;
             left: 0;
+            right: 0;
             bottom: 0;
-            padding: 0.75rem 0.5rem;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            padding: 1rem 1.25rem;
+            font-size: clamp(1.75rem, 5vw, 3rem);
             font-weight: 700;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             color: #fff;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 16px rgba(0,0,0,0.95);
             line-height: 1;
+            text-transform: uppercase;
+        }
+        /* Direction card: text on semi-transparent dark strip at bottom */
+        .direction-card-strip {
+            background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.6));
+            padding: 1rem 1.25rem;
         }
     </style>
 </head>
@@ -82,7 +91,7 @@
                     <a href="#commanders" class="text-white/80 hover:text-white text-sm uppercase tracking-wide transition-colors font-body">КОМАНДА</a>
                     <a href="#contact" class="text-white/80 hover:text-white text-sm uppercase tracking-wide transition-colors font-body">КОНТАКТИ</a>
                     <p class="text-white/60 text-xs max-w-[120px]">Контакти, соцмережі — в розділі КОНТАКТИ</p>
-                    <a href="#contact" class="bg-[#F59E0B] text-black px-5 py-2.5 font-semibold text-sm uppercase tracking-wide hover:bg-amber-500 transition-colors rounded-none">ДОЛУЧИТИСЯ</a>
+                    <a href="#contact" class="btn-sharp bg-[#F59E0B] text-black px-5 py-2.5 font-semibold text-sm uppercase tracking-wide hover:bg-amber-500 transition-colors">ДОЛУЧИТИСЯ</a>
                     <span class="text-white/70 text-sm uppercase font-body">УКР</span>
                 </nav>
             </div>
@@ -94,13 +103,13 @@
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/260110.jpg');"></div>
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-            <h1 class="font-display text-[#F59E0B] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase leading-tight mb-6" style="letter-spacing: 0.2em;">
+            <h1 class="font-display text-[#F59E0B] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase leading-tight mb-6" style="letter-spacing: 0.28em;">
                 ПІДРОЗДІЛ, ДЕ ЦІНУЮТЬ ЛЮДИНУ
             </h1>
             <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-body" style="letter-spacing: 0.05em;">
                 Сучасне забезпечення, якісна підготовка, повага до особистості, надійне плече.
             </p>
-            <a href="#contact" class="inline-block bg-[#F59E0B] text-black font-semibold px-8 py-4 text-lg uppercase tracking-wide hover:bg-amber-500 transition-colors rounded-none font-body">
+            <a href="#contact" class="btn-sharp inline-block bg-[#F59E0B] text-black font-semibold px-8 py-4 text-lg uppercase tracking-wide hover:bg-amber-500 transition-colors font-body">
                 ПРИЄДНАТИСЯ
             </a>
         </div>
@@ -111,7 +120,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div>
-                    <h2 class="font-display text-[#F59E0B] text-3xl sm:text-4xl md:text-5xl uppercase leading-tight mb-8" style="letter-spacing: 0.2em;">
+                    <h2 class="font-display text-[#F59E0B] text-3xl sm:text-4xl md:text-5xl uppercase leading-tight mb-8" style="letter-spacing: 0.25em;">
                         БУДУЄМО ПІДРОЗДІЛ НОВОГО ЗРАЗКА
                     </h2>
                     <img src="images/ШЕВРОН.png" alt="" class="w-32 h-32 md:w-40 md:h-40 object-contain" aria-hidden="true">
@@ -143,156 +152,139 @@
         </div>
     </section>
 
-    <!-- Directions: 3-column grid, background images + dark gradient overlay, text at bottom. One card solid orange. Sharp edges, thin orange border. -->
+    <!-- Directions: тільки прямокутне фото + темна підкладка внизу, без кружечків/іконок -->
     <section id="directions" class="py-20 md:py-28 bg-[#000000] border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-display text-[#F59E0B] text-3xl md:text-4xl uppercase text-center mb-2" style="letter-spacing: 0.25em;">НАПРЯМКИ</h2>
+            <h2 class="font-display text-[#F59E0B] text-3xl md:text-4xl uppercase text-center mb-2" style="letter-spacing: 0.3em;">НАПРЯМКИ</h2>
             <p class="text-white/70 text-center font-body text-sm md:text-base mb-12">напрямки діяльності</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <!-- Card 1: background image + gradient overlay, text at bottom -->
-                <article class="relative h-[320px] overflow-hidden border border-[#F59E0B]/60 rounded-none">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <article class="relative h-[300px] overflow-hidden border border-[#F59E0B]/50" style="border-radius: 0;">
                     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/commander-06.png');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <p class="text-white/80 text-xs uppercase tracking-wide font-body mb-1">Розвідка</p>
-                        <h3 class="font-display text-white text-xl md:text-2xl uppercase tracking-wide" style="letter-spacing: 0.1em;">ТЕХНОЛОГІЯ ДРОНІВ ТА РОЗВІДКА</h3>
-                        <a href="#contact" class="inline-block text-white text-sm uppercase tracking-wide mt-3 font-body border-b border-[#F59E0B] pb-0.5 hover:text-[#F59E0B] transition-colors">ДІЗНАТИСЯ БІЛЬШЕ</a>
+                    <div class="absolute bottom-0 left-0 right-0 direction-card-strip">
+                        <h3 class="font-display text-white text-lg md:text-xl uppercase" style="letter-spacing: 0.12em;">ТЕХНОЛОГІЇ ТА РОЗВІДКА</h3>
+                        <a href="#contact" class="text-white/90 text-xs uppercase mt-2 inline-block font-body hover:text-[#F59E0B]">ДІЗНАТИСЯ БІЛЬШЕ</a>
                     </div>
                 </article>
-                <!-- Card 2 -->
-                <article class="relative h-[320px] overflow-hidden border border-[#F59E0B]/60 rounded-none">
+                <article class="relative h-[300px] overflow-hidden border border-[#F59E0B]/50" style="border-radius: 0;">
                     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/commander-02.png');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <p class="text-white/80 text-xs uppercase tracking-wide font-body mb-1">Вогнева підтримка</p>
-                        <h3 class="font-display text-white text-xl md:text-2xl uppercase tracking-wide" style="letter-spacing: 0.1em;">КОНТРРОЗВІДКА</h3>
-                        <a href="#contact" class="inline-block text-white text-sm uppercase tracking-wide mt-3 font-body border-b border-[#F59E0B] pb-0.5 hover:text-[#F59E0B] transition-colors">ДІЗНАТИСЯ БІЛЬШЕ</a>
+                    <div class="absolute bottom-0 left-0 right-0 direction-card-strip">
+                        <h3 class="font-display text-white text-lg md:text-xl uppercase" style="letter-spacing: 0.12em;">КОМАНДОУТВОРЕННЯ</h3>
+                        <a href="#contact" class="text-white/90 text-xs uppercase mt-2 inline-block font-body hover:text-[#F59E0B]">ДІЗНАТИСЯ БІЛЬШЕ</a>
                     </div>
                 </article>
-                <!-- Card 3 -->
-                <article class="relative h-[320px] overflow-hidden border border-[#F59E0B]/60 rounded-none">
+                <article class="relative h-[300px] overflow-hidden border border-[#F59E0B]/50" style="border-radius: 0;">
                     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/commander-03.png');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <p class="text-white/80 text-xs uppercase tracking-wide font-body mb-1">Інженерія</p>
-                        <h3 class="font-display text-white text-xl md:text-2xl uppercase tracking-wide" style="letter-spacing: 0.1em;">РЕМОНТ ТА ІНЖЕНЕРІЯ</h3>
-                        <a href="#contact" class="inline-block text-white text-sm uppercase tracking-wide mt-3 font-body border-b border-[#F59E0B] pb-0.5 hover:text-[#F59E0B] transition-colors">ДІЗНАТИСЯ БІЛЬШЕ</a>
+                    <div class="absolute bottom-0 left-0 right-0 direction-card-strip">
+                        <h3 class="font-display text-white text-lg md:text-xl uppercase" style="letter-spacing: 0.12em;">РЕМОНТ ТА ІНЖЕНЕРІЯ</h3>
+                        <a href="#contact" class="text-white/90 text-xs uppercase mt-2 inline-block font-body hover:text-[#F59E0B]">ДІЗНАТИСЯ БІЛЬШЕ</a>
                     </div>
                 </article>
-                <!-- Card 4 -->
-                <article class="relative h-[320px] overflow-hidden border border-[#F59E0B]/60 rounded-none">
+                <article class="relative h-[300px] overflow-hidden border border-[#F59E0B]/50" style="border-radius: 0;">
                     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/commander-08.png');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <p class="text-white/80 text-xs uppercase tracking-wide font-body mb-1">Медицина</p>
-                        <h3 class="font-display text-white text-xl md:text-2xl uppercase tracking-wide" style="letter-spacing: 0.1em;">МЕДИКИ</h3>
-                        <a href="#contact" class="inline-block text-white text-sm uppercase tracking-wide mt-3 font-body border-b border-[#F59E0B] pb-0.5 hover:text-[#F59E0B] transition-colors">ДІЗНАТИСЯ БІЛЬШЕ</a>
+                    <div class="absolute bottom-0 left-0 right-0 direction-card-strip">
+                        <h3 class="font-display text-white text-lg md:text-xl uppercase" style="letter-spacing: 0.12em;">ПЕРЕДОВА МЕДИЦИНА</h3>
+                        <a href="#contact" class="text-white/90 text-xs uppercase mt-2 inline-block font-body hover:text-[#F59E0B]">ДІЗНАТИСЯ БІЛЬШЕ</a>
                     </div>
                 </article>
-                <!-- Card 5 -->
-                <article class="relative h-[320px] overflow-hidden border border-[#F59E0B]/60 rounded-none">
+                <article class="relative h-[300px] overflow-hidden border border-[#F59E0B]/50" style="border-radius: 0;">
                     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/commander-10.png');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <p class="text-white/80 text-xs uppercase tracking-wide font-body mb-1">Зв'язок</p>
-                        <h3 class="font-display text-white text-xl md:text-2xl uppercase tracking-wide" style="letter-spacing: 0.1em;">ЗВ'ЯЗОК</h3>
-                        <a href="#contact" class="inline-block text-white text-sm uppercase tracking-wide mt-3 font-body border-b border-[#F59E0B] pb-0.5 hover:text-[#F59E0B] transition-colors">ДІЗНАТИСЯ БІЛЬШЕ</a>
+                    <div class="absolute bottom-0 left-0 right-0 direction-card-strip">
+                        <h3 class="font-display text-white text-lg md:text-xl uppercase" style="letter-spacing: 0.12em;">ВОГНЕВА ПІДТРИМКА</h3>
+                        <a href="#contact" class="text-white/90 text-xs uppercase mt-2 inline-block font-body hover:text-[#F59E0B]">ДІЗНАТИСЯ БІЛЬШЕ</a>
                     </div>
                 </article>
-                <!-- Highlighted: solid orange card, sharp button -->
-                <article class="relative h-[320px] bg-[#F59E0B] flex flex-col items-center justify-center p-8 text-center rounded-none border border-[#F59E0B]">
-                    <h3 class="font-display text-black text-2xl md:text-3xl uppercase mb-4" style="letter-spacing: 0.15em;">НЕ ЗНАЄШ ЯКИЙ НАПРЯМОК ОБРАТИ?</h3>
-                    <p class="text-black/80 font-body text-sm mb-6">Ми допоможемо тобі знайти свою роль.</p>
-                    <a href="#contact" class="inline-block bg-black text-[#F59E0B] font-semibold px-6 py-3 text-sm uppercase tracking-wide hover:bg-gray-900 transition-colors rounded-none font-body">ДІЗНАТИСЯ БІЛЬШЕ</a>
+                <article class="relative h-[300px] bg-[#F59E0B] flex flex-col items-center justify-center p-6 text-center border border-[#F59E0B]" style="border-radius: 0;">
+                    <h3 class="font-display text-black text-xl md:text-2xl uppercase mb-4" style="letter-spacing: 0.2em;">НЕ ЗНАЄШ ЯКИЙ НАПРЯМОК ОБРАТИ?</h3>
+                    <a href="#contact" class="btn-sharp inline-block bg-black text-[#F59E0B] font-semibold px-5 py-2.5 text-sm uppercase tracking-wide hover:bg-gray-900 transition-colors font-body">ОБРАТИ</a>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Commanders: rectangular photos, names VERTICAL + large Bebas overlapping bottom -->
+    <!-- Commanders: суворі вертикальні прямокутники, прізвища ВЕЛИКИМИ ЛІТЕРАМИ (Bebas), перекривають фото знизу -->
     <section id="commanders" class="py-20 md:py-28 bg-[#000000] border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-display text-[#F59E0B] text-3xl md:text-4xl uppercase text-center mb-2" style="letter-spacing: 0.25em;">КОМАНДИРИ</h2>
+            <h2 class="font-display text-[#F59E0B] text-3xl md:text-4xl uppercase text-center mb-2" style="letter-spacing: 0.3em;">КОМАНДИРИ</h2>
             <p class="text-white/70 text-center font-body text-sm md:text-base mb-12">наші командири</p>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-06.png" alt="ФОКА" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">ФОКА</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">ФОКА</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-02.png" alt="СОКІЛ" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">СОКІЛ</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">СОКІЛ</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-05.png" alt="ІКАР" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">ІКАР</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">ІКАР</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-08.png" alt="ЕЛВІС" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">ЕЛВІС</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">ЕЛВІС</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-03.png" alt="ДАРВІН" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">ДАРВІН</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">ДАРВІН</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
-                    <img src="images/commander-04.png" alt="ПРОЦЕНТ" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">ПРОЦЕНТ</span>
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
+                    <img src="images/commander-04.png" alt="ШУЛЬЦ" class="w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">ШУЛЬЦ</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-01.png" alt="ЦИФРА" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">ЦИФРА</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">ЦИФРА</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-09.png" alt="ЕЙВАР" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">ЕЙВАР</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">ЕЙВАР</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-10.png" alt="БАРБЕР" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">БАРБЕР</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">БАРБЕР</span>
                 </figure>
-                <figure class="relative aspect-[3/4] overflow-hidden rounded-none">
+                <figure class="relative aspect-[3/4] overflow-hidden" style="border-radius: 0;">
                     <img src="images/commander-11.png" alt="МУЛЬТИК" class="w-full h-full object-cover object-top">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <span class="commander-name-vertical" aria-hidden="true">МУЛЬТИК</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="commander-name">МУЛЬТИК</span>
                 </figure>
             </div>
         </div>
     </section>
 
-    <!-- Contact: dark container #111111, crest, ghost inputs, sharp orange button -->
-    <section id="contact" class="relative py-20 md:py-28 min-h-[80vh] flex items-center bg-[#000000]">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image: url('images/260110.jpg'); filter: brightness(0.3);"></div>
-        <div class="absolute inset-0 bg-black/50"></div>
-        <div class="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-[#111111] border border-white/10 rounded-none p-8 md:p-10 shadow-2xl">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
+    <!-- Contact: компактна форма, темний фон #111111, мінімалістичні поля (тільки нижня лінія), гостра кнопка -->
+    <section id="contact" class="relative py-16 md:py-20 flex items-center bg-[#000000]">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30" style="background-image: url('images/260110.jpg'); filter: brightness(0.25);"></div>
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 w-full max-w-2xl mx-auto px-4 sm:px-6">
+            <div class="bg-[#111111] border border-white/10 p-6 md:p-8" style="border-radius: 0;">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                     <div>
-                        <h2 class="font-display text-[#F59E0B] text-2xl md:text-3xl uppercase mb-2" style="letter-spacing: 0.2em;">ТУТ ТИ ТВОРИШ МАЙБУТНЄ. ЗРОБИ ПЕРШИЙ КРОК.</h2>
-                        <p class="text-white/80 text-sm md:text-base font-body">Заповни форму — ми розкажемо про вакансії та дамо відповіді на запитання.</p>
+                        <h2 class="font-display text-[#F59E0B] text-xl md:text-2xl uppercase mb-1" style="letter-spacing: 0.25em;">ТУТ ТИ ТВОРИШ МАЙБУТНЄ. ЗРОБИ ПЕРШИЙ КРОК.</h2>
+                        <p class="text-white/70 text-sm font-body">Заповни форму — ми розкажемо про вакансії та дамо відповіді.</p>
                     </div>
-                    <img src="images/ШЕВРОН.png" alt="" class="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0" aria-hidden="true">
+                    <img src="images/ШЕВРОН.png" alt="" class="w-16 h-16 md:w-20 md:h-20 object-contain flex-shrink-0" aria-hidden="true">
                 </div>
-                <form class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" placeholder="Ім'я" class="input-ghost w-full px-4 py-3 rounded-none text-sm md:text-base font-body">
-                        <input type="text" placeholder="Прізвище" class="input-ghost w-full px-4 py-3 rounded-none text-sm md:text-base font-body">
+                <form class="space-y-3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <input type="text" placeholder="Ім'я" class="input-ghost w-full px-0 py-2.5 text-sm font-body">
+                        <input type="text" placeholder="Прізвище" class="input-ghost w-full px-0 py-2.5 text-sm font-body">
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="tel" placeholder="Телефон" class="input-ghost w-full px-4 py-3 rounded-none text-sm md:text-base font-body">
-                        <input type="email" placeholder="Ел. пошта" class="input-ghost w-full px-4 py-3 rounded-none text-sm md:text-base font-body">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <input type="tel" placeholder="Номер телефону" class="input-ghost w-full px-0 py-2.5 text-sm font-body">
+                        <input type="email" placeholder="Пошта" class="input-ghost w-full px-0 py-2.5 text-sm font-body">
                     </div>
                     <div>
-                        <select class="input-ghost w-full px-4 py-3 rounded-none text-sm md:text-base font-body appearance-none cursor-pointer">
+                        <select class="input-ghost w-full px-0 py-2.5 text-sm font-body appearance-none cursor-pointer">
                             <option value="">Напрямок</option>
                             <option>Технології та дрони</option>
                             <option>Контррозвідка</option>
@@ -302,21 +294,21 @@
                             <option>Логістика та транспорт</option>
                         </select>
                     </div>
-                    <div class="flex gap-6 font-body">
+                    <div class="flex gap-6 font-body text-sm">
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="radio" name="gender" value="m" class="accent-[#F59E0B]">
-                            <span class="text-white/90 text-sm">Чоловік</span>
+                            <span class="text-white/90">Чоловік</span>
                         </label>
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="radio" name="gender" value="f" class="accent-[#F59E0B]">
-                            <span class="text-white/90 text-sm">Жінка</span>
+                            <span class="text-white/90">Жінка</span>
                         </label>
                     </div>
-                    <label class="flex items-start gap-3 cursor-pointer font-body">
-                        <input type="checkbox" class="mt-1 accent-[#F59E0B] rounded-none">
-                        <span class="text-white/80 text-sm">Я згоден(-а) на обробку персональних даних</span>
+                    <label class="flex items-start gap-2 cursor-pointer font-body text-sm">
+                        <input type="checkbox" class="mt-0.5 accent-[#F59E0B]" style="border-radius: 0;">
+                        <span class="text-white/80">Я погоджуюсь на обробку персональних даних</span>
                     </label>
-                    <button type="submit" class="w-full bg-[#F59E0B] text-black font-semibold py-4 text-lg uppercase tracking-wide hover:bg-amber-500 transition-colors rounded-none font-body">НАДІСЛАТИ</button>
+                    <button type="submit" class="btn-sharp w-full bg-[#F59E0B] text-black font-semibold py-3.5 text-base uppercase tracking-wide hover:bg-amber-500 transition-colors font-body">ПРИЄДНАТИСЯ</button>
                 </form>
             </div>
         </div>

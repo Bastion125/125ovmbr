@@ -1,0 +1,33 @@
+/* Design system — 125 ОВМБр landing */
+:root {
+  /* Colors */
+  --color-bg: #000000;
+  --color-bg-dark: #111111;
+  --color-bg-card: #1A1A1A;
+  --color-accent: #F7931E;
+  --color-accent-hover: #e08518;
+  --color-text: #FFFFFF;
+  --color-text-muted: #A0A0A0;
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  /* Typography — UAF Sans усюди */
+  --font-uaf: 'UAF Sans', 'Inter', system-ui, sans-serif;
+  --font-display: 'UAF Sans', 'Inter', system-ui, sans-serif;
+  --font-body: 'UAF Sans', 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --section-padding-y: clamp(3rem, 8vw, 5rem);
+  --section-padding-x: clamp(1rem, 4vw, 2rem);
+  --section-field: clamp(1rem, 4vw, 50px); /* відступ від полів екрану, до 50px */
+  --section-about-edge: clamp(1rem, 5vw, 100px); /* блок 2: 100px від лівого краю на великих екранах */
+  --about-right-block-padding-y: clamp(2rem, 6vw, 70px); /* 70px від початку/кінця блоку */
+  --container-max: 1280px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Scroll snap (презентація по блоках) */
+  --header-height: 4rem;
+}

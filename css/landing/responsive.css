@@ -1,0 +1,38 @@
+/* Responsive — mobile-first overrides */
+/* Запобігання горизонтальному скролу при виїзді елементів за межі */
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    letter-spacing: 0.1em;
+  }
+
+  .section-about__title,
+  .section-directions__title,
+  .section-commanders__title {
+    letter-spacing: 0.15em;
+  }
+
+  .hero {
+    padding: 4rem var(--section-padding-x) 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-about__title {
+    font-size: clamp(1.5rem, 8vw, 43px);
+  }
+
+  .section-directions__title,
+  .section-commanders__title {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+  }
+}
+
+@media (min-width: 769px) {
+  .section-cta__box {
+    padding: 2.5rem;
+  }
+}

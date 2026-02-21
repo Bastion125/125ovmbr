@@ -1,0 +1,144 @@
+/* Section: Командири — grid of commander cards */
+.section-commanders {
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: var(--color-bg);
+}
+
+.section-commanders__inner {
+  max-width: clamp(1100px, 92vw, 1560px);
+  margin: 0 auto;
+}
+
+.section-commanders__heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-commanders__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  margin: 0 0 0.25rem;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.65);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.section-commanders__title::before,
+.section-commanders__title::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(247, 147, 30, 0.85) 18%,
+    rgba(247, 147, 30, 0.85) 82%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
+  width: clamp(140px, 32vw, 680px);
+  margin: 0.65rem auto;
+}
+
+.section-commanders__subtitle {
+  max-width: 56ch;
+  margin: 0 auto;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.35;
+}
+
+.commanders-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, minmax(0, 301px));
+  gap: clamp(6px, 0.45vw, 10px);
+}
+
+.commander-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.commander-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.commander-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.commander-card__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.commander-card__name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem 1rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+  line-height: 1.1;
+}
+
+.commander-card__role {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(247, 147, 30, 0.9);
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 600px) {
+  .commanders-grid {
+    grid-template-columns: repeat(3, minmax(0, 301px));
+  }
+}
+
+@media (min-width: 992px) {
+  .commanders-grid {
+    grid-template-columns: repeat(4, minmax(0, 301px));
+  }
+
+  /* Center the last row (9th & 10th cards) like in the mockup */
+  .commanders-grid .commander-card:nth-child(9) {
+    grid-column: 2;
+  }
+
+  .commanders-grid .commander-card:nth-child(10) {
+    grid-column: 3;
+  }
+}
+
+@media (max-width: 420px) {
+  .section-commanders__title {
+    letter-spacing: 0.18em;
+  }
+
+  .section-commanders__title::before,
+  .section-commanders__title::after {
+    width: clamp(90px, 40vw, 220px);
+    height: 1px;
+  }
+}

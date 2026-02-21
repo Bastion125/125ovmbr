@@ -1,0 +1,41 @@
+/* Footer — social icons, minimal */
+.site-footer {
+  padding: 2rem var(--section-padding-x);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.site-footer__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.site-footer__social a:hover {
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.site-footer__social svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}

@@ -1,0 +1,11 @@
+/* 125 ОВМБр — Landing (модульний CSS) */
+@import url('landing/variables.css?v=7');
+@import url('landing/base.css?v=7');
+@import url('landing/header.css?v=7');
+@import url('landing/hero.css?v=7');
+@import url('landing/section-about.css?v=7');
+@import url('landing/section-directions.css?v=7');
+@import url('landing/section-commanders.css?v=7');
+@import url('landing/section-cta.css?v=7');
+@import url('landing/footer.css?v=7');
+@import url('landing/responsive.css?v=7');

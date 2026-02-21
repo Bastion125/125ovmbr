@@ -1,0 +1,212 @@
+/* Section: CTA form — recruitment */
+.section-cta {
+  position: relative;
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.section-cta__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://source.unsplash.com/Vxrk9DIu3vw/2400x1600');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.28) blur(1.5px);
+}
+
+.section-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    url('../../images/fog-texture.png'),
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.68) 70%, rgba(0, 0, 0, 0.8) 100%);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: screen;
+  filter: blur(0.6px) contrast(1.08) brightness(1.05);
+}
+
+.section-cta__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.section-cta__box {
+  background: rgba(10, 10, 10, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+  padding: clamp(1.75rem, 2.6vw, 2.5rem);
+}
+
+.section-cta__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-cta__header-text {
+  min-width: 0;
+}
+
+.section-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  margin: 0;
+  max-width: 18em;
+}
+
+.section-cta__desc {
+  margin: 0.5rem 0 0;
+  max-width: 52ch;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.35;
+  font-size: 0.95rem;
+}
+
+.section-cta__emblem {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Form */
+.cta-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.cta-form__group {
+  margin-bottom: 1rem;
+}
+
+.cta-form__group--full {
+  grid-column: 1 / -1;
+}
+
+.cta-form__label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.cta-form__input,
+.cta-form__select,
+.cta-form__textarea {
+  width: 100%;
+  padding: 0.85rem 0.9rem;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.cta-form__input::placeholder,
+.cta-form__textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cta-form__input:focus,
+.cta-form__select:focus,
+.cta-form__textarea:focus {
+  outline: none;
+  border-color: rgba(247, 147, 30, 0.75);
+  box-shadow: 0 0 0 2px rgba(247, 147, 30, 0.18);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.cta-form__input:invalid:not(:placeholder-shown) {
+  border-color: rgba(255, 100, 100, 0.55);
+}
+
+.cta-form__radio-group {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-form__radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.cta-form__radio-label input {
+  accent-color: var(--color-accent);
+  width: 1.1em;
+  height: 1.1em;
+  cursor: pointer;
+}
+
+.cta-form__checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.cta-form__checkbox-label a {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration-color: rgba(247, 147, 30, 0.65);
+}
+
+.cta-form__checkbox-label a:hover {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration-color: rgba(247, 147, 30, 0.9);
+}
+
+.cta-form__checkbox-label input {
+  margin-top: 0.25rem;
+  accent-color: var(--color-accent);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.cta-form__submit {
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-normal);
+}
+
+.cta-form__submit:hover {
+  background: var(--color-accent-hover);
+}
+
+.cta-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 500px) {
+  .cta-form__row {
+    grid-template-columns: 1fr;
+  }
+}
