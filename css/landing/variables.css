@@ -29,5 +29,5 @@
   --transition-slow: 0.5s ease;
 
   /* Scroll snap (презентація по блоках) */
-  --header-height: 4rem;
+  --header-height: 62px;
 }

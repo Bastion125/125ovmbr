@@ -22,11 +22,11 @@
 .site-header__inner {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0.75rem var(--section-padding-x);
+  padding: 0 var(--section-padding-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 4rem;
+  height: var(--header-height, 62px);
 }
 
 .site-header__logo {
@@ -195,7 +195,7 @@
 /* Mobile nav overlay */
 .site-header__mobile-nav {
   position: fixed;
-  top: 4rem;
+  top: var(--header-height, 62px);
   left: 0;
   right: 0;
   bottom: 0;
