@@ -9,10 +9,10 @@
 .section-cta__bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://source.unsplash.com/Vxrk9DIu3vw/2400x1600');
+  background-image: url('../../images/260110.jpg');
   background-size: cover;
   background-position: center;
-  filter: brightness(0.28) blur(1.5px);
+  filter: brightness(0.28) blur(1.8px);
 }
 
 .section-cta__overlay {
@@ -31,15 +31,15 @@
 .section-cta__inner {
   position: relative;
   z-index: 2;
-  max-width: 640px;
+  max-width: min(1100px, 92vw);
   margin: 0 auto;
 }
 
 .section-cta__box {
   background: rgba(10, 10, 10, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
-  padding: clamp(1.75rem, 2.6vw, 2.5rem);
+  padding: clamp(2rem, 3vw, 3rem);
 }
 
 .section-cta__header {
@@ -57,11 +57,29 @@
 
 .section-cta__title {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  letter-spacing: 0.2em;
+  font-size: clamp(1.65rem, 2.6vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--color-accent);
   margin: 0;
-  max-width: 18em;
+  max-width: 22em;
+  line-height: 1.06;
+}
+
+.section-cta__title::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: clamp(160px, 26vw, 420px);
+  margin: 0.85rem 0 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(247, 147, 30, 0.85) 18%,
+    rgba(247, 147, 30, 0.85) 82%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
 }
 
 .section-cta__desc {
@@ -69,14 +87,17 @@
   max-width: 52ch;
   color: rgba(255, 255, 255, 0.72);
   line-height: 1.35;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 
 .section-cta__emblem {
-  width: 4rem;
-  height: 4rem;
+  width: 171px;
+  height: 209px;
+  margin-top: -41px;
+  margin-bottom: -41px;
   object-fit: contain;
   flex-shrink: 0;
+  opacity: 0.95;
 }
 
 /* Form */
@@ -96,8 +117,9 @@
 
 .cta-form__label {
   display: block;
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.62);
   margin-bottom: 0.35rem;
 }
 
@@ -106,12 +128,13 @@
 .cta-form__textarea {
   width: 100%;
   padding: 0.85rem 0.9rem;
-  background: rgba(0, 0, 0, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0;
   color: var(--color-text);
   font-size: 1rem;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
 }
 
 .cta-form__input::placeholder,
@@ -125,7 +148,7 @@
   outline: none;
   border-color: rgba(247, 147, 30, 0.75);
   box-shadow: 0 0 0 2px rgba(247, 147, 30, 0.18);
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(255, 255, 255, 0.055);
 }
 
 .cta-form__input:invalid:not(:placeholder-shown) {
@@ -148,10 +171,23 @@
 }
 
 .cta-form__radio-label input {
-  accent-color: var(--color-accent);
-  width: 1.1em;
-  height: 1.1em;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
   cursor: pointer;
+  display: inline-grid;
+  place-items: center;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.cta-form__radio-label input:checked {
+  border-color: rgba(247, 147, 30, 0.95);
+  box-shadow: 0 0 0 2px rgba(247, 147, 30, 0.16);
+  background: radial-gradient(circle at center, rgba(247, 147, 30, 0.95) 0 42%, transparent 46%);
 }
 
 .cta-form__checkbox-label {
@@ -175,22 +211,39 @@
 
 .cta-form__checkbox-label input {
   margin-top: 0.25rem;
-  accent-color: var(--color-accent);
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 0;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.03);
   flex-shrink: 0;
   cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.cta-form__checkbox-label input:checked {
+  border-color: rgba(247, 147, 30, 0.95);
+  background: rgba(247, 147, 30, 0.95);
+  box-shadow: 0 0 0 2px rgba(247, 147, 30, 0.16);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M6.2 12.1 2.6 8.5l1.2-1.2 2.4 2.4 6-6 1.2 1.2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.95rem 0.95rem;
 }
 
 .cta-form__submit {
   width: 100%;
   margin-top: 1.25rem;
-  padding: 1rem 1.5rem;
+  padding: 1.05rem 1.5rem;
   background: var(--color-accent);
   color: var(--color-bg);
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   border: none;
   cursor: pointer;
   transition: background var(--transition-normal);
@@ -203,6 +256,41 @@
 .cta-form__submit:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.section-cta__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+.section-cta__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  border: 2px solid rgba(247, 147, 30, 0.8);
+  color: rgba(247, 147, 30, 0.95);
+  background: rgba(0, 0, 0, 0.18);
+  transition: background var(--transition-fast), transform var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.section-cta__social a:hover {
+  background: rgba(247, 147, 30, 0.95);
+  color: rgba(0, 0, 0, 0.95);
+  transform: translateY(-1px);
+  border-color: rgba(247, 147, 30, 0.95);
+}
+
+.section-cta__social svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: currentColor;
 }
 
 @media (max-width: 500px) {

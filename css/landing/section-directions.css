@@ -8,6 +8,7 @@
   align-items: center;
   background: url('../../images/260110.jpg') center / cover no-repeat;
   overflow: hidden;
+  scroll-margin-top: calc(var(--header-height, 4rem) + 12px);
 }
 
 /* Darken background ~50% */
