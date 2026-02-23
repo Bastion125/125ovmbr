@@ -206,8 +206,39 @@
   position: relative;
   z-index: 2;
   padding: 1.25rem 1.5rem 1.15rem;
-  background: rgba(0, 0, 0, 0.62);
-  backdrop-filter: blur(6px);
+}
+
+.direction-card:not(.direction-card--cta) .direction-card__content {
+  background: transparent;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.direction-card:not(.direction-card--cta) .direction-card__content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.14) 18%,
+    rgba(0, 0, 0, 0.32) 40%,
+    rgba(0, 0, 0, 0.58) 62%,
+    rgba(0, 0, 0, 0.82) 82%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  /* make the blur fade in (top 0% -> bottom 100%) */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.direction-card:not(.direction-card--cta) .direction-card__content > * {
+  position: relative;
+  z-index: 1;
 }
 
 .direction-card__title {
