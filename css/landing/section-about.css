@@ -212,6 +212,10 @@
 
 /* Планшет і десктоп — дві колонки, великий проміжок між лівою і правою частиною як у макеті */
 @media (min-width: 769px) {
+  span.section-about__title-line {
+    font-size: 50px;
+  }
+
   .section-about__inner {
     grid-template-columns: 1fr 1.4fr;
     gap: clamp(4rem, 9vw, 10rem);
