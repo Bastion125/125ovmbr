@@ -102,7 +102,8 @@
   opacity: 0.95;
   order: -1;
   margin-bottom: 0.5rem;
-  align-self: flex-start; /* Ensure it stays on the left */
+  margin-left: -0.5rem; /* Move even further left as requested */
+  align-self: flex-start;
 }
 
 @media (min-width: 769px) {
