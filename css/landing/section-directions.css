@@ -11,14 +11,20 @@
   scroll-margin-top: calc(var(--header-height, 4rem) + 12px);
 }
 
-/* Darken background ~50% */
+/* Darken background ~75% for mobile */
 .section-directions::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
   z-index: 0;
+}
+
+@media (min-width: 769px) {
+  .section-directions::before {
+    background: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .section-directions__inner {

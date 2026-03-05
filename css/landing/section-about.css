@@ -76,6 +76,13 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 480px) {
+  .section-about__title {
+    font-size: 2.5rem; /* Exact size for smaller screens like iPhone 16 Pro */
+    letter-spacing: 0.02em;
+  }
+}
+
 .section-about__title br {
   display: block;
 }
@@ -83,7 +90,7 @@
 /* Два рядки заголовка як у макеті: не ламаються на слова */
 .section-about__title-line {
   display: block;
-  white-space: nowrap;
+  white-space: normal; /* Allow wrap on mobile if too long */
 }
 
 /* Шеврон по макету: верх щита на рівні базової лінії першого рядка, виступає ліворуч від тексту, темно-золотистий/бронзовий */
@@ -112,7 +119,7 @@
 .section-about__right {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem; /* Increased gap between blocks */
   width: 100%;
 }
 
@@ -127,32 +134,34 @@
 
 .about-block {
   display: flex;
-  gap: 1rem;
+  flex-direction: column; /* Number top, text bottom as per mockup */
+  gap: 0.25rem; /* Minimal gap between number and title */
   align-items: flex-start;
 }
 
 /* Цифри по макету — темно-золотисті/бронзові з вертикальним градієнтом (світліше зверху, темніше знизу) */
 .about-block__num {
   font-family: var(--font-uaf);
-  font-size: clamp(5rem, 15vw, 8rem);
+  font-size: clamp(6rem, 20vw, 9rem);
   font-weight: 700;
-  line-height: 0.8;
-  color: var(--color-accent);
-  background: none;
-  -webkit-text-fill-color: initial;
+  line-height: 0.9;
+  /* Darkened bottom gradient as per mockup */
+  background: linear-gradient(to bottom, var(--color-accent) 0%, var(--color-accent) 40%, #000 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   flex-shrink: 0;
+  margin-bottom: -0.5rem; /* Pull title closer to number */
 }
 
 .about-block__content {
-  flex: 1;
-  min-width: 0;
-  max-width: 560px;
-  padding-top: 0.25rem;
+  width: 100%;
 }
 
 .about-block__content h3 {
   font-family: var(--font-uaf);
-  font-size: clamp(1.25rem, 5vw, 1.75rem);
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
