@@ -69,38 +69,40 @@
   height: 2px;
   width: 100%;
   max-width: 300px;
-  margin: 0.75rem 0;
-  background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 70%, transparent 100%); /* Faded at end */
+  margin: 1rem 0;
+  background: linear-gradient(to right, transparent 0%, var(--color-accent) 20%, var(--color-accent) 80%, transparent 100%); /* Symmetrical fade */
 }
 
 .section-cta__desc {
-  margin: 0.75rem 0 0;
+  margin: 1rem 0 0;
   max-width: 480px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.4;
   font-size: 1rem;
   position: relative;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
 }
 
-/* New faded line after p text */
+/* Faded line after p text - symmetrical as requested */
 .section-cta__desc::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   height: 1px;
-  background: linear-gradient(to right, rgba(247, 147, 30, 0.6) 0%, rgba(247, 147, 30, 0.6) 70%, transparent 100%);
+  background: linear-gradient(to right, transparent 0%, rgba(247, 147, 30, 0.6) 20%, rgba(247, 147, 30, 0.6) 80%, transparent 100%);
 }
 
 .section-cta__emblem {
-  width: 120px; /* Larger as requested */
+  width: 120px;
   height: auto;
   opacity: 0.95;
-  order: -1; /* Emblem on top on mobile */
+  order: -1;
   margin-bottom: 0.5rem;
+  align-self: flex-start; /* Ensure it stays on the left */
 }
 
 @media (min-width: 769px) {
