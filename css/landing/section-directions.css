@@ -55,7 +55,7 @@
   content: '';
   display: block;
   height: 2px;
-  background: var(--color-accent);
+  background: linear-gradient(to right, transparent 0%, var(--color-accent) 20%, var(--color-accent) 80%, transparent 100%);
   width: clamp(100px, 40vw, 300px);
   margin: 0.5rem auto;
 }

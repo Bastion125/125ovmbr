@@ -68,9 +68,9 @@
   display: block;
   height: 2px;
   width: 100%;
-  max-width: 300px; /* Adjust line max width */
+  max-width: 300px;
   margin: 0.75rem 0;
-  background: var(--color-accent);
+  background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 70%, transparent 100%); /* Faded at end */
 }
 
 .section-cta__desc {
@@ -79,6 +79,20 @@
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.4;
   font-size: 1rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+/* New faded line after p text */
+.section-cta__desc::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 300px;
+  height: 1px;
+  background: linear-gradient(to right, rgba(247, 147, 30, 0.6) 0%, rgba(247, 147, 30, 0.6) 70%, transparent 100%);
 }
 
 .section-cta__emblem {
