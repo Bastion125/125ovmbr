@@ -11,13 +11,13 @@
   scroll-margin-top: calc(var(--header-height, 4rem) + 12px);
 }
 
-/* Darken background ~75% for mobile */
+/* Darken background to almost black for mobile */
 .section-directions::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.92); /* Even darker, almost black */
   z-index: 0;
 }
 

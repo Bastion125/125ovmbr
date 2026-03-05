@@ -71,11 +71,11 @@
 
 .hero__subtitle {
   font-family: var(--font-uaf);
-  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-size: clamp(1.2rem, 5vw, 1.75rem); /* Increased font size */
   font-weight: 400;
   color: var(--color-text);
   opacity: 0.9;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto 2.5rem;
   line-height: 1.4;
   letter-spacing: 0.02em;
@@ -83,7 +83,7 @@
 
 .hero__cta {
   display: inline-block;
-  padding: 1rem 2.5rem;
+  padding: 1rem 4rem; /* Widened button (padding left/right from 2.5rem to 4rem) */
   background: var(--color-accent);
   color: #000;
   font-family: var(--font-uaf);
