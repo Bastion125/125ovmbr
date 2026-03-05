@@ -2,6 +2,7 @@
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,53 +48,66 @@
 .hero__content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 1000px;
+  width: 100%;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .hero__title {
   font-family: var(--font-uaf);
-  font-size: clamp(1.75rem, 5vw, 3.25rem);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: 0.12em;
+  font-size: clamp(2rem, 10vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.05em;
   color: var(--color-accent);
-  margin: 0 0 1rem;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
 }
 
-.hero__title strong,
-.hero__title .accent {
-  color: var(--color-accent);
+#hero-title {
+  /* Remove specific font-size to let clamp handle it */
 }
 
 .hero__subtitle {
   font-family: var(--font-uaf);
-  font-size: 1rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 400;
   color: var(--color-text);
-  opacity: 0.95;
-  max-width: 32em;
-  margin: 0 auto 1.5rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.4;
   letter-spacing: 0.02em;
-  line-height: 1.5;
 }
 
 .hero__cta {
   display: inline-block;
-  padding: 0.9rem 2rem;
+  padding: 1rem 2.5rem;
   background: var(--color-accent);
-  color: var(--color-bg);
+  color: #000;
   font-family: var(--font-uaf);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   border: none;
   cursor: pointer;
   transition: background var(--transition-normal), transform var(--transition-fast);
+  text-decoration: none;
 }
 
 .hero__cta:hover {
   background: var(--color-accent-hover);
   transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4.25rem var(--section-padding-x) 2rem;
+    align-items: flex-end;
+  }
+  .hero__content {
+    padding-bottom: 2.5rem;
+  }
 }
