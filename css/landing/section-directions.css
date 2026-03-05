@@ -300,11 +300,11 @@
 
 .direction-card--cta .direction-card__title {
   color: #fff;
-  font-size: 33px;
+  font-size: clamp(2.2rem, 10vw, 2.8rem); /* Increased font size */
   font-weight: 800;
   letter-spacing: 0.05em;
-  line-height: 1.08;
-  margin: 0 0 0.85rem;
+  line-height: 1.05;
+  margin: 0 0 1rem;
 }
 
 .direction-card--cta .direction-card__title br {
@@ -312,24 +312,25 @@
 }
 
 .direction-card--cta .direction-card__desc {
-  font-size: 14px;
+  font-size: 1.1rem; /* Slightly larger */
   line-height: 1.4;
   color: rgba(255, 255, 255, 1);
-  margin: 0 0 1.5rem;
-  width: 544px;
+  margin: 0 0 2rem;
+  width: 100%;
   max-width: 100%;
 }
 
 .direction-card--cta .direction-card__link,
 .direction-card--cta .direction-card__btn {
   display: inline-block;
-  padding: 0.95rem 12px;
-  width: 216px;
-  height: 44px;
+  padding: 1rem 12px;
+  width: 100%; /* Wider button on mobile */
+  max-width: 320px;
+  height: auto;
   margin-top: 0;
   background: #fff;
   color: #1a1a1a;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
