@@ -34,7 +34,7 @@
   min-width: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: 1.5rem; /* Reduced gap between title and content blocks as requested */
   align-items: start;
   position: relative;
   z-index: 1;
@@ -66,12 +66,12 @@
   position: relative;
   z-index: 1;
   font-family: var(--font-uaf);
-  font-size: clamp(2.25rem, 10vw, 4.5rem);
+  font-size: clamp(2.5rem, 12vw, 4.5rem); /* Slightly larger on mobile */
   font-weight: 700;
   letter-spacing: 0.05em;
-  line-height: 1.1;
+  line-height: 1.05;
   color: var(--color-accent);
-  margin: 0 0 2rem;
+  margin: 0; /* No margin below title as gap is handled by parent grid */
   text-align: left;
   text-transform: uppercase;
 }
@@ -142,17 +142,17 @@
 /* Цифри по макету — темно-золотисті/бронзові з вертикальним градієнтом (світліше зверху, темніше знизу) */
 .about-block__num {
   font-family: var(--font-uaf);
-  font-size: clamp(6rem, 20vw, 9rem);
+  font-size: clamp(8rem, 25vw, 12rem); /* Even larger as requested */
   font-weight: 700;
-  line-height: 0.9;
-  /* Darkened bottom gradient as per mockup */
-  background: linear-gradient(to bottom, var(--color-accent) 0%, var(--color-accent) 40%, #000 100%);
+  line-height: 0.8;
+  /* Darker bottom gradient as requested (black at the bottom) */
+  background: linear-gradient(to bottom, var(--color-accent) 0%, var(--color-accent) 30%, rgba(0, 0, 0, 0.95) 90%, #000 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   flex-shrink: 0;
-  margin-bottom: -0.5rem; /* Pull title closer to number */
+  margin-bottom: -1rem; /* Pull title even closer to number */
 }
 
 .about-block__content {
