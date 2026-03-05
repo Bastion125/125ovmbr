@@ -75,7 +75,7 @@
   <header class="site-header" id="site-header">
     <div class="site-header__inner">
       <a href="#" class="site-header__logo">
-        <img src="images/ШЕВРОН.png" alt="125 окрема важка механізована бригада" width="40" height="40">
+        <img src="images/ШЕВРОН-1.png" alt="125 окрема важка механізована бригада" width="40" height="40">
         <span class="site-header__title">
           <span class="site-header__title-line">125 ОКРЕМА ВАЖКА</span>
           <span class="site-header__title-line">МЕХАНІЗОВАНА БРИГАДА</span>
@@ -101,7 +101,7 @@
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__media">
-        <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="images/260110.jpg" aria-hidden="true">
+        <video id="hero-video" class="hero__video" autoplay muted loop playsinline preload="auto" poster="images/260110.jpg" aria-hidden="true">
           <source src="images/20260128-compressed.mp4" type="video/mp4">
         </video>
         <div class="hero__img" style="background-image: url('images/260110.jpg');" role="presentation" aria-hidden="true"></div>
@@ -291,7 +291,7 @@
                 Заповни форму, і представник служби рекрутингу звʼяжеться з тобою, щоб відповісти на всі питання.
               </p>
             </div>
-            <img src="images/ШЕВРОН.png" alt="" class="section-cta__emblem" width="64" height="64" loading="lazy" aria-hidden="true">
+            <img src="images/ШЕВРОН-1.png" alt="" class="section-cta__emblem" width="64" height="64" loading="lazy" aria-hidden="true">
           </div>
           <form class="cta-form" id="cta-form" novalidate>
             <div class="cta-form__row">
@@ -528,14 +528,26 @@
 
       closeBtn.onclick = function() {
         modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        document.body.style.overflow = ""; // Reset overflow to default
       }
 
       window.onclick = function(event) {
         if (event.target == modal) {
           modal.style.display = "none";
-          document.body.style.overflow = "auto";
+          document.body.style.overflow = ""; // Reset overflow to default
         }
+      }
+
+      // Video Force Play
+      var heroVideo = document.getElementById('hero-video');
+      if (heroVideo) {
+        heroVideo.play().catch(function(e) {
+          console.log("Autoplay blocked, waiting for interaction");
+          document.addEventListener('touchstart', function playOnTouch() {
+            heroVideo.play();
+            document.removeEventListener('touchstart', playOnTouch);
+          }, { once: true });
+        });
       }
     })();
   </script>
