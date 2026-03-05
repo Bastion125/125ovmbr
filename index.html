@@ -41,9 +41,6 @@
             <li role="none"><a href="index-en.html" role="menuitem" hreflang="en">EN</a></li>
           </ul>
         </div>
-        <button type="button" class="site-header__burger" aria-label="Відкрити меню" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </div>
     <nav class="site-header__mobile-nav" aria-label="Мобільне меню">
@@ -318,8 +315,6 @@
   <script>
     (function () {
       var header = document.getElementById('site-header');
-      var burger = header && header.querySelector('.site-header__burger');
-      var mobileNav = header && header.querySelector('.site-header__mobile-nav');
 
       function scrollToHash(hash) {
         if (!hash || hash === '#') return;
@@ -335,19 +330,6 @@
         } catch (e) {}
       }
 
-      if (burger && mobileNav) {
-        burger.addEventListener('click', function () {
-          header.classList.toggle('site-header--open');
-          burger.setAttribute('aria-expanded', header.classList.contains('site-header--open'));
-        });
-        mobileNav.querySelectorAll('a').forEach(function (a) {
-          a.addEventListener('click', function () {
-            header.classList.remove('site-header--open');
-            burger.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-
       document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function (e) {
           var href = a.getAttribute('href');
@@ -355,12 +337,6 @@
           if (!document.querySelector(href)) return;
 
           e.preventDefault();
-
-          if (header && header.classList.contains('site-header--open')) {
-            header.classList.remove('site-header--open');
-            if (burger) burger.setAttribute('aria-expanded', 'false');
-          }
-
           scrollToHash(href);
         });
       });
