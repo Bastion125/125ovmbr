@@ -394,6 +394,7 @@
 
       document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function (e) {
+          if (a.classList.contains('direction-card__link')) return;
           var href = a.getAttribute('href');
           if (!href || href === '#') return;
           if (!document.querySelector(href)) return;
@@ -505,6 +506,7 @@
       var modalTitle = document.getElementById("modal-title");
       var modalBody = document.getElementById("modal-body");
       var closeBtn = document.querySelector(".close-modal");
+      var modalCta = document.querySelector(".modal-cta");
 
       var directionData = {
         "ТЕХНОЛОГІЇ, ДРОНИ ТА РОЗВІДКА": "Робота з БПЛА різних типів (FPV, розвідувальні), засобами РЕБ та аналітикою розвідданих. Ми шукаємо пілотів, інженерів та фахівців зі зв'язку.",
@@ -526,27 +528,33 @@
         });
       });
 
-      closeBtn.onclick = function() {
+      var closeModal = function() {
         modal.style.display = "none";
-        document.body.style.overflow = ""; // Reset overflow to default
-      }
+        document.body.style.overflow = "";
+      };
 
+      closeBtn.onclick = closeModal;
+      if (modalCta) modalCta.onclick = closeModal;
+      
       window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-          document.body.style.overflow = ""; // Reset overflow to default
-        }
+        if (event.target == modal) closeModal();
       }
 
       // Video Force Play
       var heroVideo = document.getElementById('hero-video');
       if (heroVideo) {
+        var playVideo = function() {
+          heroVideo.play().then(function() {
+            document.removeEventListener('touchstart', playVideo);
+            document.removeEventListener('click', playVideo);
+          }).catch(function(e) {
+            console.log("Autoplay still blocked");
+          });
+        };
+        
         heroVideo.play().catch(function(e) {
-          console.log("Autoplay blocked, waiting for interaction");
-          document.addEventListener('touchstart', function playOnTouch() {
-            heroVideo.play();
-            document.removeEventListener('touchstart', playOnTouch);
-          }, { once: true });
+          document.addEventListener('touchstart', playVideo, { once: true });
+          document.addEventListener('click', playVideo, { once: true });
         });
       }
     })();
