@@ -36,17 +36,17 @@
 }
 
 .site-header__logo img {
-  width: 1.5rem !important;
+  width: 3.75rem !important; /* 1.5rem * 2.5 = 3.75rem */
   height: auto !important;
-  max-height: 1.5rem !important;
+  max-height: 4.5rem !important;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
   .site-header__logo img {
-    width: 2rem !important;
-    max-height: 2rem !important;
+    width: 5rem !important; /* 2rem * 2.5 = 5rem */
+    max-height: 6rem !important;
   }
 }
 
