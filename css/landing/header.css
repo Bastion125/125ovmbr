@@ -45,8 +45,8 @@
 
 @media (max-width: 768px) {
   .site-header__logo img {
-    width: 3.2rem !important; /* 3.85rem / 1.2 ≈ 3.2rem */
-    max-height: 4rem !important;
+    width: 2.13rem !important; /* 3.2rem / 1.5 ≈ 2.13rem */
+    max-height: 3rem !important;
   }
 }
 
