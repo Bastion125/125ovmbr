@@ -601,11 +601,11 @@
           tmp.innerHTML = title;
           title = tmp.textContent || tmp.innerText || "";
           
-          var data = directionData[title] || { desc: "Детальна інформація про цей напрямок надається при особистій консультації.", img: "images/260110.jpg" };
+          var data = directionData[title] || { desc: "Детальна інформація про цей напрямок надається при особистій консультації.", img: "images/621746067_885643637506812_1330632440668125164_n.jpg" };
           
           modalTitle.innerText = title;
           modalBody.innerHTML = '<p>' + data.desc + '</p>';
-          modalImg.src = data.img;
+          modalImg.src = data.img + '?t=' + new Date().getTime(); // Force reload by adding timestamp
           modalImg.alt = title;
           
           modal.style.display = "block";
