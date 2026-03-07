@@ -36,7 +36,7 @@
 }
 
 .site-header__logo img {
-  width: 1.5rem; /* Even smaller for PC */
+  width: 1.25rem; /* Even smaller to fit exactly with text height on PC */
   height: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -44,7 +44,7 @@
 
 @media (max-width: 768px) {
   .site-header__logo img {
-    width: 1.85rem; /* Even smaller for mobile */
+    width: 1.6rem; /* Minimal size for mobile to prevent any overflow */
   }
 }
 
