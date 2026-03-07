@@ -583,7 +583,8 @@
         link.addEventListener('click', function(e) {
           e.preventDefault();
           var card = this.closest('.direction-card');
-          var title = card.querySelector('.direction-card__title').innerText.replace(/\n/g, ' ');
+          var titleElement = card.querySelector('.direction-card__title');
+          var title = titleElement.textContent.replace(/\n/g, ' ').trim();
           var data = directionData[title] || { desc: "Детальна інформація про цей напрямок надається при особистій консультації.", img: "images/260110.jpg" };
           
           modalTitle.innerText = title;

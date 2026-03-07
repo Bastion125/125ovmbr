@@ -48,6 +48,10 @@
     width: 2.4rem !important;
     max-height: 3.2rem !important;
   }
+
+  .site-header__title-line {
+    font-size: 0.85rem !important; /* Smaller font for mobile header lines */
+  }
 }
 
 .site-header__title {
@@ -128,18 +132,18 @@
 /* Mobile nav overlay */
 .site-header__mobile-nav {
   position: fixed;
-  top: var(--header-height, 62px);
+  top: 0; /* Cover entire screen */
   left: 0;
   right: 0;
   bottom: 0;
   background: var(--color-bg-dark);
-  padding: 2rem;
+  padding: 6rem 2rem 2rem; /* More padding top to clear header buttons */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   transform: translateX(100%);
   transition: transform var(--transition-normal);
-  z-index: 99;
+  z-index: 98; /* Just below header buttons but above content */
 }
 
 .site-header--open .site-header__mobile-nav {
