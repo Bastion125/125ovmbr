@@ -151,7 +151,7 @@
   z-index: 99; /* Higher z-index */
 }
 
-.site-header--open .site-header__mobile-nav {
+.site-header--open + .site-header__mobile-nav {
   transform: translateX(0);
 }
 
