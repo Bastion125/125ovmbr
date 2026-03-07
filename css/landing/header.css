@@ -96,7 +96,7 @@
   border: none;
   cursor: pointer;
   color: var(--color-text);
-  order: 1; /* Before language switcher */
+  order: 3; /* Changed from 1 to 3 to be after language switcher (order 2) */
 }
 
 @media (min-width: 769px) {

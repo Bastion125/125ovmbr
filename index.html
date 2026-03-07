@@ -69,6 +69,19 @@
       text-transform: uppercase;
       text-decoration: none;
     }
+    .modal-media {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -377,6 +390,9 @@
   <div id="direction-modal" class="modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
+      <div class="modal-media">
+        <img id="modal-img" src="" alt="" class="modal-img" loading="lazy">
+      </div>
       <h2 class="modal-title" id="modal-title">Назва напрямку</h2>
       <div class="modal-body" id="modal-body">
         <p>Детальний опис напрямку та можливостей для рекрутів.</p>
@@ -536,15 +552,31 @@
       var modal = document.getElementById("direction-modal");
       var modalTitle = document.getElementById("modal-title");
       var modalBody = document.getElementById("modal-body");
+      var modalImg = document.getElementById("modal-img");
       var closeBtn = document.querySelector(".close-modal");
       var modalCta = document.querySelector(".modal-cta");
 
       var directionData = {
-        "ТЕХНОЛОГІЇ, ДРОНИ ТА РОЗВІДКА": "Робота з БПЛА різних типів (FPV, розвідувальні), засобами РЕБ та аналітикою розвідданих. Ми шукаємо пілотів, інженерів та фахівців зі зв'язку.",
-        "БОЙОВІ ПІДРОЗДІЛИ": "Безпосередня участь у виконанні бойових завдань, робота в розрахунках артилерії, піхоти та екіпажів бронетехніки. Надійність та фахова підготовка.",
-        "РЕМОНТ ТА ІНЖЕНЕРІЯ": "Відновлення пошкодженої техніки, обслуговування озброєння, інженерне обладнання позицій та мінна безпека. Робота для технічних фахівців.",
-        "ЛОГІСТИКА ТА ТРАНСПОРТ": "Забезпечення підрозділів усім необхідним: від палива та боєприпасів до продуктів харчування. Потрібні водії та організатори постачання.",
-        "УПРАВЛІННЯ ТА ШТАБ": "Планування операцій, ведення документації, координація взаємодії між підрозділами. Потрібні діловоди та штабні офіцери."
+        "ТЕХНОЛОГІЇ, ДРОНИ ТА РОЗВІДКА": {
+          desc: "Робота з БПЛА різних типів (FPV, розвідувальні), засобами РЕБ та аналітикою розвідданих. Ми шукаємо пілотів, інженерів та фахівців зі зв'язку.",
+          img: "images/260124.jpg"
+        },
+        "БОЙОВІ ПІДРОЗДІЛИ": {
+          desc: "Безпосередня участь у виконанні бойових завдань, робота в розрахунках артилерії, піхоти та екіпажів бронетехніки. Надійність та фахова підготовка.",
+          img: "images/260123.jpg"
+        },
+        "РЕМОНТ ТА ІНЖЕНЕРІЯ": {
+          desc: "Відновлення пошкодженої техніки, обслуговування озброєння, інженерне обладнання позицій та мінна безпека. Робота для технічних фахівців.",
+          img: "images/260122.jpg"
+        },
+        "ЛОГІСТИКА ТА ТРАНСПОРТ": {
+          desc: "Забезпечення підрозділів усім необхідним: від палива та боєприпасів до продуктів харчування. Потрібні водії та організатори постачання.",
+          img: "images/260125.jpg"
+        },
+        "УПРАВЛІННЯ ТА ШТАБ": {
+          desc: "Планування операцій, ведення документації, координація взаємодії між підрозділами. Потрібні діловоди та штабні офіцери.",
+          img: "images/260110.jpg"
+        }
       };
 
       document.querySelectorAll('.direction-card__link').forEach(function(link) {
@@ -552,8 +584,13 @@
           e.preventDefault();
           var card = this.closest('.direction-card');
           var title = card.querySelector('.direction-card__title').innerText.replace(/\n/g, ' ');
+          var data = directionData[title] || { desc: "Детальна інформація про цей напрямок надається при особистій консультації.", img: "images/260110.jpg" };
+          
           modalTitle.innerText = title;
-          modalBody.innerHTML = '<p>' + (directionData[title] || "Детальна інформація про цей напрямок надається при особистій консультації.") + '</p>';
+          modalBody.innerHTML = '<p>' + data.desc + '</p>';
+          modalImg.src = data.img;
+          modalImg.alt = title;
+          
           modal.style.display = "block";
           document.body.style.overflow = "hidden"; // Prevent scroll
         });
