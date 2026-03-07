@@ -36,17 +36,17 @@
 }
 
 .site-header__logo img {
-  width: 2.88rem !important; /* 3.75rem / 1.3 ≈ 2.88rem */
+  width: 2.4rem !important; /* 2.88rem / 1.2 = 2.4rem */
   height: auto !important;
-  max-height: 3.5rem !important;
+  max-height: 3.2rem !important;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
   .site-header__logo img {
-    width: 3.85rem !important; /* 5rem / 1.3 ≈ 3.85rem */
-    max-height: 4.5rem !important;
+    width: 3.2rem !important; /* 3.85rem / 1.2 ≈ 3.2rem */
+    max-height: 4rem !important;
   }
 }
 
