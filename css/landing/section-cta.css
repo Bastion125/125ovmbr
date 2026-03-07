@@ -108,9 +108,10 @@
 
 @media (min-width: 769px) {
   .section-cta__emblem {
-    width: 160px;
+    width: 130px; /* Slightly reduced from 160px for PC */
     order: 0;
     margin-bottom: 0;
+    margin-left: 0;
   }
 }
 
