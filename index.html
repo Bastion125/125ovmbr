@@ -589,7 +589,18 @@
           e.preventDefault();
           var card = this.closest('.direction-card');
           var titleElement = card.querySelector('.direction-card__title');
-          var title = titleElement.textContent.replace(/\n/g, ' ').trim();
+          
+          // Use innerHTML and replace <br> with space to preserve spaces between words
+          var title = titleElement.innerHTML
+            .replace(/<br\s*\/?>/gi, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+          
+          // Remove potential HTML tags if any remain
+          var tmp = document.createElement("DIV");
+          tmp.innerHTML = title;
+          title = tmp.textContent || tmp.innerText || "";
+          
           var data = directionData[title] || { desc: "Детальна інформація про цей напрямок надається при особистій консультації.", img: "images/260110.jpg" };
           
           modalTitle.innerText = title;
