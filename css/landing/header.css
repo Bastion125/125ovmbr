@@ -140,7 +140,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #0a0a0a; /* Dark solid background */
+  background: rgba(10, 10, 10, 0.85); /* Semi-transparent dark background */
+  backdrop-filter: blur(15px); /* Strong blur effect */
+  -webkit-backdrop-filter: blur(15px);
   padding: 7rem 2rem 2rem;
   display: flex;
   flex-direction: column;
