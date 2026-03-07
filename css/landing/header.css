@@ -45,12 +45,16 @@
 
 @media (max-width: 768px) {
   .site-header__logo img {
-    width: 2.4rem !important;
-    max-height: 3.2rem !important;
+    width: 2rem !important; /* Smaller logo for mobile */
+    max-height: 2.8rem !important;
+  }
+
+  .site-header__title {
+    font-size: 0.65rem !important;
   }
 
   .site-header__title-line {
-    font-size: 0.85rem !important; /* Smaller font for mobile header lines */
+    font-size: 0.75rem !important; /* Even smaller font for mobile header lines */
   }
 }
 
@@ -132,18 +136,19 @@
 /* Mobile nav overlay */
 .site-header__mobile-nav {
   position: fixed;
-  top: 0; /* Cover entire screen */
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--color-bg-dark);
-  padding: 6rem 2rem 2rem; /* More padding top to clear header buttons */
+  background: #0a0a0a; /* Dark solid background */
+  padding: 7rem 2rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  align-items: center; /* Center links for better visibility */
+  gap: 2rem;
   transform: translateX(100%);
-  transition: transform var(--transition-normal);
-  z-index: 98; /* Just below header buttons but above content */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 99; /* Higher z-index */
 }
 
 .site-header--open .site-header__mobile-nav {
@@ -152,12 +157,17 @@
 
 .site-header__mobile-nav a {
   font-family: var(--font-uaf);
-  font-size: 1.25rem;
+  font-size: 1.75rem; /* Larger font for menu items */
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  color: #fff; /* White color for contrast */
   text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.site-header__mobile-nav a:hover {
+  color: var(--color-accent);
 }
 
 .site-header__right {
