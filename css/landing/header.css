@@ -83,23 +83,110 @@
   }
 }
 
-/* Burger — removed as requested, replaced by language switcher in mobile view */
+/* Burger (mobile) */
 .site-header__burger {
-  display: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  order: 1; /* Before language switcher */
 }
 
-.site-header__lang {
-  display: block !important;
+@media (min-width: 769px) {
+  .site-header__burger {
+    display: none !important;
+  }
 }
 
-.site-header__cta:hover {
-  background: var(--color-accent);
-  color: var(--color-bg);
+.site-header__burger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.site-header--open .site-header__burger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header--open .site-header__burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header--open .site-header__burger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile nav overlay */
+.site-header__mobile-nav {
+  position: fixed;
+  top: var(--header-height, 62px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-bg-dark);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+  z-index: 99;
+}
+
+.site-header--open .site-header__mobile-nav {
+  transform: translateX(0);
+}
+
+.site-header__mobile-nav a {
+  font-family: var(--font-uaf);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.site-header__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 769px) {
+  .site-header__burger,
+  .site-header__mobile-nav {
+    display: none;
+  }
+
+  .site-header__logo img {
+    width: 2.4rem !important;
+    height: auto !important;
+  }
+
+  .site-header__title,
+  .site-header__cta {
+    font-size: 0.8rem;
+  }
+
+  .site-header__cta {
+    padding: 0.5rem 1.25rem;
+  }
 }
 
 /* Language selector */
 .site-header__lang {
   position: relative;
+  order: 2;
 }
 
 .site-header__lang-trigger {
@@ -170,88 +257,4 @@
 
 .site-header__lang-dropdown a:hover {
   background: rgba(255, 255, 255, 0.08);
-}
-
-/* Burger (mobile) */
-.site-header__burger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-text);
-}
-
-.site-header__burger span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: currentColor;
-  transition: transform var(--transition-normal), opacity var(--transition-normal);
-}
-
-.site-header--open .site-header__burger span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.site-header--open .site-header__burger span:nth-child(2) {
-  opacity: 0;
-}
-
-.site-header--open .site-header__burger span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Mobile nav overlay */
-.site-header__mobile-nav {
-  position: fixed;
-  top: var(--header-height, 62px);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--color-bg-dark);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transform: translateX(100%);
-  transition: transform var(--transition-normal);
-  z-index: 99;
-}
-
-.site-header--open .site-header__mobile-nav {
-  transform: translateX(0);
-}
-
-.site-header__mobile-nav a {
-  font-family: var(--font-uaf);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-}
-
-@media (min-width: 769px) {
-  .site-header__burger,
-  .site-header__mobile-nav {
-    display: none;
-  }
-
-  .site-header__logo img {
-    width: 2.4rem !important;
-    height: auto !important;
-  }
-
-  .site-header__title,
-  .site-header__cta {
-    font-size: 0.8rem;
-  }
-
-  .site-header__cta {
-    padding: 0.5rem 1.25rem;
-  }
 }
