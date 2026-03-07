@@ -36,14 +36,14 @@
 }
 
 .site-header__logo img {
-  width: 2.25rem; /* Reduced for PC as requested */
+  width: 2rem; /* Reduced to fit within header height on PC */
   height: auto;
   object-fit: contain;
 }
 
 @media (max-width: 768px) {
   .site-header__logo img {
-    width: 3rem; /* Keep larger for mobile as previously requested */
+    width: 2.5rem; /* Slightly reduced for mobile to avoid overflow */
   }
 }
 
