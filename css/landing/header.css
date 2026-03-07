@@ -36,7 +36,7 @@
 }
 
 .site-header__logo img {
-  width: 0.85rem; /* Reduced by ~1.5x from 1.25rem */
+  width: 0.425rem; /* Reduced by 2x from 0.85rem */
   height: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -44,7 +44,7 @@
 
 @media (max-width: 768px) {
   .site-header__logo img {
-    width: 1.25rem; /* Reduced by ~1.3x from 1.6rem */
+    width: 0.625rem; /* Reduced by 2x from 1.25rem */
   }
 }
 
