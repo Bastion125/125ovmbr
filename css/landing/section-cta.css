@@ -54,7 +54,7 @@
 
 .section-cta__title {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 8vw, 2.5rem); /* Slightly smaller as requested */
+  font-size: clamp(1.55rem, 7vw, 2.3rem); /* Slightly smaller as requested */
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--color-accent);
@@ -78,7 +78,7 @@
   max-width: 480px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.4;
-  font-size: 1rem;
+  font-size: 0.85rem;
   position: relative;
   padding-bottom: 2rem;
 }
