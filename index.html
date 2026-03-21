@@ -13,6 +13,14 @@
   <link rel="icon" href="images/ШЕВРОН.png" sizes="32x32">
   <link rel="apple-touch-icon" href="images/ШЕВРОН.png">
 
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("YOUR_PUBLIC_KEY_HERE");
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
@@ -76,16 +84,27 @@
     }
     .modal-media {
       width: 100%;
-      height: 200px;
+      height: auto;
+      min-height: 180px;
+      max-height: 300px;
       margin-bottom: 1.5rem;
       border-radius: 4px;
       overflow: hidden;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .modal-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+    .modal-img.is-loading {
+      opacity: 0;
     }
   </style>
 </head>
@@ -106,11 +125,11 @@
           <span></span>
         </button>
         <div class="site-header__lang" aria-label="Мова сайту">
-          <button type="button" class="site-header__lang-trigger" aria-expanded="false" aria-haspopup="true" id="lang-trigger">
-            <span class="site-header__lang-flag" aria-hidden="true"></span>
-            <span class="site-header__lang-code">УКР</span>
-            <span class="site-header__lang-arrow" aria-hidden="true"></span>
-          </button>
+                <button type="button" class="site-header__lang-trigger" id="lang-trigger">
+                      <span class="site-header__lang-flag site-header__lang-flag--ua" aria-hidden="true"></span>
+                      <span class="site-header__lang-code">УКР</span>
+                      <span class="site-header__lang-arrow" aria-hidden="true"></span>
+                 </button>
           <ul class="site-header__lang-dropdown" id="lang-dropdown" role="menu" hidden>
             <li role="none"><a href="index.html" role="menuitem" hreflang="uk">УКР</a></li>
             <li role="none"><a href="index-en.html" role="menuitem" hreflang="en">EN</a></li>
@@ -287,34 +306,67 @@
         </header>
         <div class="commanders-grid">
           <figure class="commander-card">
-            <img src="images/commander-01.png" alt="ЦИФРА — командир патронатної служби" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-01.png" class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-02.png" alt="СОКІЛ — головний сержант бригади" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-02.png"  class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-03.png" alt="ДАРВІН — командир 2 механізованого батальйону" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-03.png"  class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-04.png" alt="ШУЛЬЦ — командир 3РДН" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-04.png"  class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-05.png" alt="ІКАР — начальник відділення бойової підготовки" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-05.png"  class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-06.png" alt="ФОКА — командир бригади" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-06.png"  class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-08.png" alt="ЕЛВІС — начальник медичної служби" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-07.png"  class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-09.png" alt="ЕЙВАР — начальник БПС бригади" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-08.png"  class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-10.png" alt="БАРБЕР — начальник групи БПС бригади" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-09.png"  class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
           <figure class="commander-card">
-            <img src="images/commander-11.png" alt="МУЛЬТИК — командир групи БПС бригади" class="commander-card__img" width="300" height="400" loading="lazy">
+            <img src="images/commander-10.png"  class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+          <figure class="commander-card">
+            <img src="images/commander-11.png"  class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-12.png"  class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-13.png"  class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-14.png"  class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-15.png"  class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-16.png"  class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-17.png"  class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-18.png" class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-19.png" class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-20.png" class="commander-card__img" width="300" height="400" loading="lazy">
+          </figure>
+              <figure class="commander-card">
+            <img src="images/commander-21.png" class="commander-card__img" width="300" height="400" loading="lazy">
           </figure>
         </div>
       </div>
@@ -358,6 +410,7 @@
                 <option value="WhatsApp">WhatsApp</option>
                 <option value="Інший">Інший</option>
               </select>
+              <input type="text" id="messenger-other" name="messenger_other" class="cta-form__input" placeholder="Напишіть назву месенджера" style="display: none; margin-top: 0.5rem;">
             </div>
             </div>
             <div class="cta-form__group">
@@ -402,6 +455,48 @@
       </div>
     </section>
   </main>
+
+  <script>
+    document.getElementById('cta-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const btn = document.querySelector('.cta-form__submit');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Відправляю...';
+      
+      try {
+        const result = await emailjs.sendForm(
+          'SERVICE_ID_HERE',
+          'TEMPLATE_ID_HERE',
+          this
+        );
+        
+        alert('✅ Форму успішно відправлено на 125ovmbr@gmail.com!');
+        this.reset();
+        btn.textContent = originalText;
+      } catch (error) {
+        console.error('EmailJS error:', error);
+        alert('❌ Помилка відправки: ' + (error.text || error.message));
+        btn.textContent = originalText;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    // Toggle messenger other field
+    document.getElementById('messenger').addEventListener('change', function() {
+      const otherInput = document.getElementById('messenger-other');
+      if (this.value === 'Інший') {
+        otherInput.style.display = 'block';
+        otherInput.required = true;
+      } else {
+        otherInput.style.display = 'none';
+        otherInput.required = false;
+        otherInput.value = '';
+      }
+    });
+  </script>
 
   <!-- Modal Template -->
   <div id="direction-modal" class="modal">
@@ -599,32 +694,68 @@
       document.querySelectorAll('.direction-card__link').forEach(function(link) {
         link.addEventListener('click', function(e) {
           e.preventDefault();
-          var card = this.closest('.direction-card');
-          var titleElement = card.querySelector('.direction-card__title');
-          
-          // Get data from data-attributes
-          var title = titleElement.innerHTML
-            .replace(/<br\s*\/?>/gi, ' ')
-            .replace(/\s+/g, ' ')
-            .trim();
-          
-          // Remove potential HTML tags if any remain
-          var tmp = document.createElement("DIV");
-          tmp.innerHTML = title;
-          title = tmp.textContent || tmp.innerText || "";
-          
-          var modalImgSrc = this.getAttribute('data-modal-img');
-          var modalDescText = this.getAttribute('data-modal-desc');
-          
-          modalTitle.innerText = title;
-          modalBody.innerHTML = '<p>' + modalDescText + '</p>';
-          modalImg.src = modalImgSrc + '?t=' + new Date().getTime(); // Force reload
-          modalImg.alt = title;
-          
-          modal.style.display = "block";
-          document.body.style.overflow = "hidden"; // Prevent scroll
+          openModalFromElement(this);
         });
       });
+
+      // Mobile: Click on entire card to open modal (with scroll protection)
+      document.querySelectorAll('.direction-card').forEach(function(card) {
+        var startX, startY;
+        
+        card.addEventListener('touchstart', function(e) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        card.addEventListener('touchend', function(e) {
+          var endX = e.changedTouches[0].clientX;
+          var endY = e.changedTouches[0].clientY;
+          
+          // Only trigger if it was a tap (not a scroll/swipe)
+          // Threshold of 10px
+          if (Math.abs(endX - startX) < 10 && Math.abs(endY - startY) < 10) {
+            var link = card.querySelector('.direction-card__link');
+            if (link && window.innerWidth <= 768) {
+              openModalFromElement(link);
+            }
+          }
+        }, { passive: true });
+      });
+
+      function openModalFromElement(element) {
+        var card = element.closest('.direction-card');
+        var titleElement = card.querySelector('.direction-card__title');
+        
+        // Get data from data-attributes
+        var title = titleElement.innerHTML
+          .replace(/<br\s*\/?>/gi, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+        
+        // Remove potential HTML tags if any remain
+        var tmp = document.createElement("DIV");
+        tmp.innerHTML = title;
+        title = tmp.textContent || tmp.innerText || "";
+        
+        var modalImgSrc = element.getAttribute('data-modal-img');
+        var modalDescText = element.getAttribute('data-modal-desc');
+        
+        modalTitle.innerText = title;
+        modalBody.innerHTML = '<p>' + modalDescText + '</p>';
+        
+        // Handle image loading with fade
+        modalImg.classList.add('is-loading');
+        var newImg = new Image();
+        newImg.onload = function() {
+          modalImg.src = modalImgSrc + '?t=' + new Date().getTime();
+          modalImg.classList.remove('is-loading');
+        };
+        newImg.src = modalImgSrc + '?t=' + new Date().getTime();
+        modalImg.alt = title;
+        
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Prevent scroll
+      }
 
       var closeModal = function() {
         modal.style.display = "none";

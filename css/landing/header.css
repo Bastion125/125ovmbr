@@ -224,13 +224,30 @@
   opacity: 0.9;
 }
 
+/* Загальні стилі для контейнера прапора */
 .site-header__lang-flag {
   width: 20px;
   height: 14px;
-  background: linear-gradient(to bottom, #0057B7 0%, #0057B7 50%, #FFD700 50%, #FFD700 100%);
   border-radius: 1px;
   flex-shrink: 0;
+  display: inline-block;
 }
+
+.site-header__lang-flag--en {
+  /* Чистий SVG код прапора Великобританії */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='s'%3E%3Cpath d='M0,0 v30 h60 v-30 z'/%3E%3C/clipPath%3E%3Cpath d='M0,0 v30 h60 v-30 z' fill='%23012169'/%3E%3Cpath d='M0,0 L60,30 M60,0 L0,30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0,0 L60,30 M60,0 L0,30' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30,0 v30 M0,15 h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30,0 v30 M0,15 h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* Важливо прибрати старий background-color або gradient */
+  background-color: transparent !important;
+}
+
+/* Український прапор (залишаємо ваш градієнт, він чудовий) */
+.site-header__lang-flag--ua {
+  background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);
+}
+
 
 .site-header__lang-arrow {
   width: 0;

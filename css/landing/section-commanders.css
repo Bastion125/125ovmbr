@@ -57,20 +57,14 @@
   margin: 1.5rem auto 0;
 }
 
+/* Default: 2 columns on mobile */
 .commanders-grid {
   display: grid;
-  justify-content: flex-start; /* Shift left as requested */
-  grid-template-columns: repeat(2, minmax(0, 301px));
+  justify-content: flex-start;
+  grid-template-columns: repeat(2, 1fr);
   gap: clamp(4px, 0.35vw, 8px);
-  padding-left: 0;
-  margin-left: -1rem; /* Move images further left to start with text */
-}
-
-.commanders-grid {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(2, minmax(0, 301px));
-  gap: clamp(4px, 0.35vw, 8px);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .commander-card {
@@ -129,22 +123,15 @@
 
 @media (min-width: 600px) {
   .commanders-grid {
-    grid-template-columns: repeat(3, minmax(0, 301px));
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
   }
 }
 
 @media (min-width: 992px) {
   .commanders-grid {
     grid-template-columns: repeat(4, minmax(0, 301px));
-  }
-
-  /* Center the last row (9th & 10th cards) like in the mockup */
-  .commanders-grid .commander-card:nth-child(9) {
-    grid-column: 2;
-  }
-
-  .commanders-grid .commander-card:nth-child(10) {
-    grid-column: 3;
+    justify-content: center;
   }
 }
 

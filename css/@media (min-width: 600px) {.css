@@ -1,0 +1,29 @@
+@media (min-width: 600px) {
+  .commanders-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+  }
+
+  /* Очистити центрування для 10-ї на більших екранах */
+  .commanders-grid .commander-card:nth-child(10) {
+    grid-column: auto;
+    width: auto;
+    margin: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .commanders-grid {
+    grid-template-columns: repeat(4, minmax(0, 301px));
+    justify-content: center;
+  }
+
+  /* Center 9th & 10th cards in the middle as mockup */
+  .commanders-grid .commander-card:nth-child(9) {
+    grid-column: 1;
+  }
+
+  .commanders-grid .commander-card:nth-child(10) {
+    grid-column: 2;
+  }
+}
